@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -9,8 +8,8 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent implements OnInit {
 
-  username = new FormControl('');
-  password = new FormControl('');
+  username: string;
+  password: string;
 
   errorState: boolean = false;
   errorMessage: string = "";
@@ -23,14 +22,14 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): void {
-    if (!this.username.value) {
+    if (!this.username) {
       this.errorState = true;
       this.errorMessage = "Username is required";
-    } else if (!this.password.value) {
+    } else if (!this.password) {
       this.errorState = true;
       this.errorMessage = "Password is required";
     } else {
-      if (!this.loginService.login(this.username.value, this.password.value)) {
+      if (!this.loginService.login(this.username, this.password)) {
         this.errorState = true;
         this.errorMessage = "Incorrect Username/Password";
       } else {

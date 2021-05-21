@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { User } from '../user';
 
 @Component({
@@ -9,18 +8,13 @@ import { User } from '../user';
 })
 export class SignupComponent implements OnInit {
 
-  username = new FormControl('');
-  password1 = new FormControl('');
-  password2 = new FormControl('');
-  name = new FormControl('');
-  email = new FormControl('');
-  dob = new FormControl('');
-  phone = new FormControl('');
-
   errorState: boolean = false;
   errorMessage: string = "";
 
-  user: User;
+  password1: string;
+  password2: string;
+
+  user: User = new User();
 
   constructor() { }
 
@@ -29,19 +23,20 @@ export class SignupComponent implements OnInit {
 
   submit(): void {
     this.errorState = false;
-    if (this.password1.value !== this.password2.value) {
+    if (this.password1 !== this.password2) {
       this.errorState = true;
       this.errorMessage = "Passwords must match";
-    } else if (!this.username.value) {
+    } else if (!this.user.username) {
       this.errorState = true;
       this.errorMessage = "Username is required";
-    } else if (!this.password1.value) {
+    } else if (!this.password1) {
       this.errorState = true;
       this.errorMessage = "Password is required";
-    } else if (!this.dob.value) {
+    } else if (!this.user.dob) {
       this.errorState = true;
       this.errorMessage = "Date of birth is required";
     } else {
+      this.user.password = this.password1;
       alert("user created");
     }
   }

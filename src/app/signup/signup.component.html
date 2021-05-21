@@ -11,38 +11,38 @@
                 <div class="column">
                     <label>
                         Username:<br>
-                        <input type="text" [formControl]="username" required>
+                        <input type="text" [(ngModel)]="user.username" required>
                     </label>
                     <br><br>
                     <label>
                         Password:<br>
-                        <input type="password" [formControl]="password1" required>
+                        <input type="password" [(ngModel)]="password1" required>
                     </label>
                     <br><br>
                     <label>
                         Confirm Password:<br>
-                        <input type="password" [formControl]="password2" required>
+                        <input type="password" [(ngModel)]="password2" required>
                     </label>
                     <br><br>
                     <label>
                         Name:<br>
-                        <input type="text" [formControl]="name">
+                        <input type="text" [(ngModel)]="user.name">
                     </label>
                 </div>
                 <div class="column">
                     <label>
                         Email:<br>
-                        <input type="email" [formControl]="email">
+                        <input type="email" [(ngModel)]="user.email">
                     </label>
                     <br><br>
                     <label>
                         Date of birth:<br>
-                        <input type="date" [formControl]="dob" required>
+                        <input type="date" [(ngModel)]="user.dob">
                     </label>
                     <br><br>
                     <label>
                         Phone number:<br>
-                        <input type="tel" [formControl]="phone">
+                        <input type="tel" [(ngModel)]="user.phone">
                     </label>
                     <br><br>
                     <p>
