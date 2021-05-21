@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'mvn --version'
-                echo 'build hello from Jenkinsfile'
+                echo 'build hello from jenkins'
             }
         }
     }
