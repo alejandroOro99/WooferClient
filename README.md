@@ -10,5 +10,5 @@ users and see their uploaded content, as well as be able to see content of speci
 Tech stack:
 -Backend: Java Spring, PostgreSQL, Hibernate.
 -Frontend: HTML, CSS, Javascript, Angular, Bootstrap.
--DevOPS: AWS, EC2, S3, RDS, Git/GitHub, Gradle, Jenkins, Docker. 
+-DevOPS: AWS, EC2, S3, RDS, Git/GitHub, Gradle, Jenkins, Docker.. 
 -Testing: JUnit, Mockito, Jasmine(Karma), SonarQube.
