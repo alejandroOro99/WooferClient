@@ -16,9 +16,11 @@
                 Password:<br>
                 <input type="password" [formControl]="password">
             </label>
+            <br><br>
             <p>
                 <button (click)="submit()" class="btn btn-primary">Login</button>
             </p>
+            <a [routerLink]="[ '/signup' ]">signup</a>
         </div>
     </div>
 </div>

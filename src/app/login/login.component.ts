@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   loggedIn: boolean = false;
 
-  constructor(private login: LoginService) { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
       this.errorState = true;
       this.errorMessage = "Password is required";
     } else {
-      if (!this.login.login(this.username.value, this.password.value)) {
+      if (!this.loginService.login(this.username.value, this.password.value)) {
         this.errorState = true;
         this.errorMessage = "Incorrect Username/Password";
       } else {
