@@ -1,7 +1,7 @@
 WOOFER2021
 
 Project team members: Michael Harris, Mishael Harrison, Michael Keyes, Alejandro Orozco.sss
-
+s
 Woofer2021 is the name of our application for Revature project #2.
 
 Woofer2021 is an application that allows users to post content(right now text), follow other
