@@ -1,6 +1,6 @@
 WOOFER2021
 
-Project team members: Michael Harris, Mishael Harrison, Michael Keyes, Alejandro Orozco.sss
+Project team members: Michael Harris, Mishael Harrison, Michael Keyes, Alejandro Orozco.ssss
 s
 Woofer2021 is the name of our application for Revature project #2.
 
