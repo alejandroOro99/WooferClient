@@ -4,9 +4,6 @@ node{
     stage("clone"){
         git url: "https://github.com/Woofer2021/WooferServer", branch: 'main'
     }
-    stage("Build app"){
-        sh './gradlew clean build'
-    }
     
     stage("build docker image"){
         sh "docker build -t alejandrooro99/project1:${buildNum} ."
