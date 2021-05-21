@@ -5,7 +5,8 @@ node{
         git url: "https://github.com/Woofer2021/WooferServer", branch: 'main'
     }
     stage("Build app"){
-        sh './gradlew clean build'
+        sh "chmod +x gradlew"
+        sh "./gradlew clean build --no-daemon"
     }
     stage("build docker image"){
         sh "docker build -t alejandrooro99/project1:${buildNum} ."
