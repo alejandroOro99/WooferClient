@@ -1,11 +1,11 @@
-.card {
-    margin: 1rem;
-}
-
-h3 {
+h4 {
     display: inline;
 }
 
 .username{
     color: gray;
+}
+
+.content{
+    padding: 5px;
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoggedUserService } from '../logged-user.service';
 import { LoginService } from '../login.service';
 
 @Component({
@@ -16,7 +18,10 @@ export class LoginComponent implements OnInit {
 
   loggedIn: boolean = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private loggedUser: LoggedUserService) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +38,7 @@ export class LoginComponent implements OnInit {
         this.errorState = true;
         this.errorMessage = "Incorrect Username/Password";
       } else {
-        alert("this is where Angular would change to a logged in state");
+        this.router.navigate(['mainPage']);
       }
     }
   }

@@ -11,6 +11,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './signup/signup.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
+import { MainPageComponent } from './main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PostComponent } from './post/post.component';
     LoginComponent,
     SignupComponent,
     FeedComponent,
-    PostComponent
+    PostComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
