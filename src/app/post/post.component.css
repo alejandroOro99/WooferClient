@@ -1,0 +1,11 @@
+.card {
+    margin: 1rem;
+}
+
+h3 {
+    display: inline;
+}
+
+.username{
+    color: gray;
+}

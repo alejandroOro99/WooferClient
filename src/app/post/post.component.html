@@ -1,5 +1,16 @@
-{{post.username}}<br>
-{{post.name}}<br>
-{{post.body}}<br>
-{{post.likes}}<br>
-{{post.comments}}<br>
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <h3>{{post.name}}</h3>&nbsp;
+            <span class="username">@{{post.username}}</span>
+        </li>
+        <li class="list-group-item">
+            <p>{{post.body}}</p>
+            <span class="footnote">
+                Likes: {{post.likes}}
+                &nbsp;&nbsp;&nbsp;
+                Comments: {{post.comments}}
+            </span>
+        </li>
+    </ul>
+</div>
