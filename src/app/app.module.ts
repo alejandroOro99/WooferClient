@@ -12,12 +12,9 @@ import { SignupComponent } from './signup/signup.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
-<<<<<<< HEAD
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-=======
 import { PosterComponent } from './poster/poster.component';
 import { FirstPageComponent } from './first-page/first-page.component';
->>>>>>> upstream/main
 
 @NgModule({
   declarations: [
@@ -27,11 +24,8 @@ import { FirstPageComponent } from './first-page/first-page.component';
     FeedComponent,
     PostComponent,
     MainPageComponent,
-<<<<<<< HEAD
-=======
     PosterComponent,
     FirstPageComponent,
->>>>>>> upstream/main
   ],
   imports: [
     BrowserModule,
@@ -40,10 +34,7 @@ import { FirstPageComponent } from './first-page/first-page.component';
     NgbModule,
     FormsModule,
     CommonModule,
-<<<<<<< HEAD
     HttpClientModule,
-=======
->>>>>>> upstream/main
   ],
   providers: [],
   bootstrap: [AppComponent],
