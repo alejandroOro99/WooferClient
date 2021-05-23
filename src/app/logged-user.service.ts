@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoggedUserService {
-
   username: string;
   name: string;
 
-  constructor() { }
+  constructor() {}
 }
