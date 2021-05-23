@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from "@angular/common";
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     SignupComponent,
     FeedComponent,
     PostComponent,
-    MainPageComponent
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,9 +29,10 @@ import { MainPageComponent } from './main-page/main-page.component';
     ReactiveFormsModule,
     NgbModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
