@@ -1,1 +1,215 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --main-color: #ffc61a;
+}
+
+body {
+  box-sizing: border-box;
+  color: rgb(15, 20, 25);
+  /* font: 14px "Comic Neue", cursive; */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.primary-flex {
+  align-items: stretch;
+  border: 0 solid black;
+  display: flex;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+
+.flex-auto {
+  flex: 1 1 auto;
+}
+
+.row-reverse {
+  -webkit-box-direction: reverse;
+  -webkit-box-orient: horizontal;
+  flex-direction: row-reverse;
+}
+
+.justify-content-center {
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.min-width-45vw {
+  min-width: 45vw;
+}
+
+.min-height-45vh {
+  min-height: 45vh;
+}
+
+.min-height-full {
+  min-height: 100vh;
+}
+
+.min-height-auto {
+  min-height: auto;
+}
+
+.max-width-760 {
+  max-width: 760px;
+}
+
+.min-width-437 {
+  min-width: 437px;
+}
+
+.p-16 {
+  padding: 16px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.p-b-12 {
+  padding-bottom: 12px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.letter-spacing {
+  letter-spacing: -1.2px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.line-height-84 {
+  line-height: calc(84px);
+}
+
+.font-size-64 {
+  font-size: 64px;
+}
+
+.overflow-wrap {
+  overflow-wrap: break-word;
+}
+
+.min-width-0 {
+  min-width: 0;
+}
+
+.m-y-48 {
+  margin-bottom: 48px;
+  margin-top: 48px;
+}
+
+.height-3rem {
+  height: 3rem;
+}
+
+.align-self-start {
+  align-self: flex-start;
+}
+
+.join-woofer {
+  margin-bottom: 32px;
+  line-height: 36px;
+  font-size: 31px;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  min-width: 0px;
+}
+
+.sign-up-button {
+  cursor: pointer;
+  outline-style: none;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s;
+  min-width: calc(77.28px);
+  min-height: 48px;
+  background-color: var(--main-color);
+  max-width: 380px;
+  margin-bottom: 20px;
+  height: 0px;
+  user-select: none;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-color: rgba(0, 0, 0, 0);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9999px;
+  flex: 1;
+}
+
+.sign-up {
+  color: rgb(255, 255, 255);
+}
+
+.login-button {
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  outline-style: none;
+  transition-property: background-color, box-shadow;
+  transition-duration: 0.2s;
+  min-width: calc(77.28px);
+  min-height: 48px;
+  max-width: 380px;
+  margin-bottom: 20px;
+  height: 0px;
+  user-select: none;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-color: var(--main-color);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 9999px;
+  flex: 1;
+}
+
+.login {
+  color: var(--main-color);
+}
+
+.button {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  overflow-wrap: break-word;
+  min-width: 0px;
+  align-items: center;
+  -webkit-box-align: center;
+  justify-content: center;
+  -webkit-box-pack: center;
+  flex-grow: 1;
+  -webkit-box-flex: 1;
+  flex-direction: row;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  text-align: center;
+  max-width: 100%;
+  display: flex;
+}
+
+.cover-image {
+  background-image: url("./assets/dogecoin.png");
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 800px -300px;
+  background-color: rgba(0, 0, 0, 0);
+  height: 100%;
+  width: 100%;
+}
+
+.paw-logo {
+  width: 45px;
+  height: auto;
+}

@@ -13,6 +13,7 @@ import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PosterComponent } from './poster/poster.component';
+import { FirstPageComponent } from './first-page/first-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { PosterComponent } from './poster/poster.component';
     PostComponent,
     MainPageComponent,
     PosterComponent,
+    FirstPageComponent,
   ],
   imports: [
     BrowserModule,
