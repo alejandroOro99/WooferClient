@@ -1,55 +1,53 @@
 <div class="mx-auto">
-    <div class="card">
-        <div class="card-header">
-            Enter user info
+  <div class="card">
+    <div class="card-header">Enter user info</div>
+    <div class="card-body" (keydown.enter)="submit()">
+      <div *ngIf="errorState" class="error">
+        {{ errorMessage }}
+      </div>
+      <div class="row">
+        <div class="column">
+          <label>
+            Username:<br />
+            <input type="text" [(ngModel)]="user.username" required />
+          </label>
+          <br /><br />
+          <label>
+            Password:<br />
+            <input type="password" [(ngModel)]="password1" required />
+          </label>
+          <br /><br />
+          <label>
+            Confirm Password:<br />
+            <input type="password" [(ngModel)]="password2" required />
+          </label>
+          <br /><br />
+          <label>
+            Name:<br />
+            <input type="text" [(ngModel)]="user.name" />
+          </label>
         </div>
-        <div class="card-body" (keydown.enter)="submit()">
-            <div *ngIf="errorState" class="error">
-                {{errorMessage}}
-            </div>
-            <div class="row">
-                <div class="column">
-                    <label>
-                        Username:<br>
-                        <input type="text" [(ngModel)]="user.username" required>
-                    </label>
-                    <br><br>
-                    <label>
-                        Password:<br>
-                        <input type="password" [(ngModel)]="password1" required>
-                    </label>
-                    <br><br>
-                    <label>
-                        Confirm Password:<br>
-                        <input type="password" [(ngModel)]="password2" required>
-                    </label>
-                    <br><br>
-                    <label>
-                        Name:<br>
-                        <input type="text" [(ngModel)]="user.name">
-                    </label>
-                </div>
-                <div class="column">
-                    <label>
-                        Email:<br>
-                        <input type="email" [(ngModel)]="user.email">
-                    </label>
-                    <br><br>
-                    <label>
-                        Date of birth:<br>
-                        <input type="date" [(ngModel)]="user.dob">
-                    </label>
-                    <br><br>
-                    <label>
-                        Phone number:<br>
-                        <input type="tel" [(ngModel)]="user.phone">
-                    </label>
-                    <br><br>
-                    <p>
-                        <button (click)="submit()" class="btn btn-primary">Signup</button>
-                    </p>
-                </div>
-            </div>
+        <div class="column">
+          <label>
+            Email:<br />
+            <input type="email" [(ngModel)]="user.email" />
+          </label>
+          <br /><br />
+          <label>
+            Date of birth:<br />
+            <input type="date" [(ngModel)]="user.dob" />
+          </label>
+          <br /><br />
+          <label>
+            Phone number:<br />
+            <input type="tel" [(ngModel)]="user.phone" />
+          </label>
+          <br /><br />
+          <p>
+            <button (click)="submit()" class="btn btn-primary">Signup</button>
+          </p>
         </div>
+      </div>
     </div>
+  </div>
 </div>
