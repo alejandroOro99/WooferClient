@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   errorState: boolean = false;
   errorMessage: string = '';
 
-  loggedIn: boolean = false;
+  loggedIn: boolean;
 
   constructor(
     private loginService: LoginService,
