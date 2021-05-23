@@ -7,7 +7,7 @@ import { LoggedUserService } from './logged-user.service';
 export class PostingService {
   constructor(private loggedUser: LoggedUserService) {}
 
-  post(body: string) {
+  post(body: string): void {
     if (this.loggedUser.name) {
       alert(
         'this is where the post will be submitted with user: ' +

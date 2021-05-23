@@ -13,7 +13,7 @@ export class PosterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  submit() {
+  submit(): void {
     this.thingThatPosts.post(this.body);
   }
 }

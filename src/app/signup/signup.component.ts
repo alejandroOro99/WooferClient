@@ -8,8 +8,8 @@ import { User } from '../user';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  errorState: boolean = false;
-  errorMessage: string = '';
+  errorState = false;
+  errorMessage = '';
 
   password1: string;
   password2: string;
