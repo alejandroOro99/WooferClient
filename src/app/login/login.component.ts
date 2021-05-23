@@ -12,10 +12,10 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
-  errorState: boolean = false;
-  errorMessage: string = '';
+  errorState: boolean;
+  errorMessage: string;
 
-  loggedIn: boolean = false;
+  loggedIn: boolean;
 
   constructor(
     private loginService: LoginService,
