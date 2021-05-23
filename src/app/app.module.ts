@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { FirstPageComponent } from './first-page/first-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MainPageComponent } from './main-page/main-page.component';
     FeedComponent,
     PostComponent,
     MainPageComponent,
+    FirstPageComponent,
   ],
   imports: [
     BrowserModule,
