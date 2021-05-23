@@ -8,7 +8,7 @@ export class LoginService {
   constructor(private loggedUser: LoggedUserService) {}
 
   public login(username: string, password: string): boolean {
-    //temporary login logic
+    // temporary login logic
     this.loggedUser.name = 'Morgan Freeman';
     return username === 'password' && password === 'username';
   }
