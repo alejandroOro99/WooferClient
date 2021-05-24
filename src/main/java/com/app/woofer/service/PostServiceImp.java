@@ -20,7 +20,9 @@ public class PostServiceImp implements PostService{
 
     @Override
     public Post putPost(Post post) {
-        return postRepository.save(post);
+        Post ret = postRepository.save(post);
+        ret.getUser().setPassword("password intentionally left blank");
+        return ret;
     }
 
     @Override
@@ -35,16 +37,28 @@ public class PostServiceImp implements PostService{
 
     @Override
     public Post getPost(int id) {
-        return postRepository.findById(id).orElse(null);
+        Post ret = postRepository.findById(id).orElse(null);
+        if (ret != null){
+            ret.getUser().setPassword("password intentionally left blank");
+        }
+        return ret;
     }
 
     @Override
     public List<Post> getByUserID(int id) {
-        return postRepository.findByUserID(id);
+        List<Post> ret = postRepository.findByUserID(id);
+        for (Post i: ret) {
+            i.getUser().setPassword("password intentionally left blank");
+        }
+        return ret;
     }
 
     @Override
     public List<Post> getAll() {
-        return postRepository.findAll();
+        List<Post> ret = postRepository.findAll();
+        for (Post i: ret) {
+            i.getUser().setPassword("password intentionally left blank");
+        }
+        return ret;
     }
 }

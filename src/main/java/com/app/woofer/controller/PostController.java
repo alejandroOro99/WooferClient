@@ -1,6 +1,7 @@
 package com.app.woofer.controller;
 
 import com.app.woofer.model.Post;
+import com.app.woofer.model.ret.ReturnPost;
 import com.app.woofer.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,13 @@ public class PostController {
     PostService postService;
 
     @PostMapping("/post")
-    public Post addPost(@RequestBody Post post){
-        return postService.addPost(post);
+    public ReturnPost addPost(@RequestBody Post post){
+        return new ReturnPost(postService.addPost(post));
     }
 
     @PutMapping("/post")
-    public Post putPost(@RequestBody Post post){
-        return postService.putPost(post);
+    public ReturnPost putPost(@RequestBody Post post){
+        return new ReturnPost(postService.putPost(post));
     }
 
     @DeleteMapping("/post")
@@ -35,17 +36,17 @@ public class PostController {
     }
 
     @GetMapping("/post/{id}")
-    public Post getPost(@RequestBody int id){
-        return postService.getPost(id);
+    public ReturnPost getPost(@RequestBody int id){
+        return new ReturnPost(postService.getPost(id));
     }
 
     @GetMapping("/posts/user/{id}")
-    public List<Post> getPostsByUser(@RequestBody int id){
-        return postService.getByUserID(id);
+    public List<ReturnPost> getPostsByUser(@RequestBody int id){
+        return ReturnPost.listConvert(postService.getByUserID(id));
     }
 
     @GetMapping("/posts")
-    public List<Post> GetAllPosts(){
-        return postService.getAll();
+    public List<ReturnPost> GetAllPosts(){
+        return ReturnPost.listConvert(postService.getAll());
     }
 }

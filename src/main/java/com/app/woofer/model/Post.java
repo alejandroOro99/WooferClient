@@ -1,12 +1,16 @@
 package com.app.woofer.model;
 
 import com.app.woofer.model.User;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.Instant;
 
 @Entity
 @Table(name = "posts")
+@Data
+@NoArgsConstructor
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
