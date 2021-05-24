@@ -4,4 +4,5 @@ export class Post {
   body: string;
   likes: number;
   comments: number;
+  userId: number;
 }
