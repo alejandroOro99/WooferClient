@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignupService } from '../signup.service';
 import { User } from '../user';
 
 @Component({
@@ -7,15 +8,17 @@ import { User } from '../user';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-  errorState: boolean;
-  errorMessage: string;
+  errorState = false;
+  errorMessage = '';
 
   password1: string;
   password2: string;
 
-  user: User = new User();
+  user: User;
 
-  constructor() {}
+  constructor(private signupService: SignupService) {
+    this.user = new User();
+  }
 
   ngOnInit(): void {}
 
@@ -35,6 +38,10 @@ export class SignupComponent implements OnInit {
       this.errorMessage = 'Date of birth is required';
     } else {
       this.user.password = this.password1;
+      this.signupService.addUser(this.user).subscribe((res) => {
+        this.user = new User();
+      });
+
       alert('user created');
     }
   }

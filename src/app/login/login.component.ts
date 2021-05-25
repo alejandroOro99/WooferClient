@@ -12,8 +12,8 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
 
-  errorState: boolean;
-  errorMessage: string;
+  errorState = false;
+  errorMessage = '';
 
   loggedIn: boolean;
 
