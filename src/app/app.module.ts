@@ -14,6 +14,7 @@ import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { PosterComponent } from './poster/poster.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FirstPageComponent } from './first-page/first-page.component';
     NgbModule,
     FormsModule,
     CommonModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
