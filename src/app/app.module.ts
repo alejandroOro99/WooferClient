@@ -12,7 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { PosterComponent } from './poster/poster.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 
