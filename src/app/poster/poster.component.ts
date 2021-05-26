@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoggedUserService } from '../logged-user.service';
 import { PostService } from '../post.service';
 
 @Component({
@@ -8,10 +9,16 @@ import { PostService } from '../post.service';
 })
 export class PosterComponent implements OnInit {
   body: string;
+  userExists: boolean;
 
-  constructor(private thingThatPosts: PostService) {}
+  constructor(
+    private thingThatPosts: PostService,
+    private user: LoggedUserService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userExists = !!this.user.name;
+  }
 
   submit(): void {
     this.thingThatPosts.post(this.body);
