@@ -14,6 +14,10 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
 
+    public User(String username, String password){
+        this.username = username;
+        this.password = password;
+    }
     private String username;
     private String password;
     private String name;

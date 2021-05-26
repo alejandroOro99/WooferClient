@@ -7,12 +7,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:5500") //angular running on port 5500
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class UserController {
 
+
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService){
+        this.userService = userService;
+    }
 
     //GET requests
     @GetMapping("/user/username/{username}")
@@ -35,16 +40,24 @@ public class UserController {
         return userService.getUserById(id);
     }
 
+    @GetMapping("/user/email/{email}")
+    public User getUserByEmail(@PathVariable String email) {
+        return userService.getUserByEmail(email);
+    }
+
     //POST requests
     @PostMapping("/user/add")
     public User addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
 
+    @PostMapping("/user/login")
+    public boolean login(@RequestBody User user){return userService.login(user);}
+
     //DELETE requests
-    @DeleteMapping("/user/delete")
-    public void removeUser(@RequestBody User user) {
-        userService.removeUser(user);
+    @DeleteMapping("/user/delete/{id}")
+    public void removeUser(@PathVariable int id) {
+        userService.removeUser(id);
     }
 
 
