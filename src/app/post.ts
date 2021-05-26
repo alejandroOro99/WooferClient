@@ -5,4 +5,5 @@ export class Post {
   likes: number;
   comments: number;
   userId: number;
+  Id: number;
 }
