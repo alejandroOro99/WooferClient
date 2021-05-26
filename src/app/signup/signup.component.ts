@@ -18,11 +18,11 @@ export class SignupComponent implements OnInit {
   userEmailValidation: User;
   userUsernameValidation: User;
 
-  constructor(private signupService: SignupService) {
+  constructor(private signupService: SignupService) {}
+
+  ngOnInit(): void {
     this.user = new User();
   }
-
-  ngOnInit(): void {}
 
   validateCredentials(): void {
     if (

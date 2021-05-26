@@ -15,6 +15,15 @@ describe('PostComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PostComponent);
     component = fixture.componentInstance;
+    component.post = {
+      username: 'user',
+      name: 'name',
+      body: 'body',
+      likes: 1,
+      comments: 1,
+      userId: 1,
+      Id: 1,
+    };
     fixture.detectChanges();
   });
 

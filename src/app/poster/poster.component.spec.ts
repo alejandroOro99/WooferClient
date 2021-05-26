@@ -1,6 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LoggedUserService } from '../logged-user.service';
+import { PostService } from '../post.service';
 
 import { PosterComponent } from './poster.component';
+
+class mockPostService {
+  getAll() {}
+  post() {}
+}
+
+class mockLoggedUserService {
+  username: string;
+  name: string;
+  id: number;
+}
 
 describe('PosterComponent', () => {
   let component: PosterComponent;
@@ -8,9 +21,12 @@ describe('PosterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PosterComponent ]
-    })
-    .compileComponents();
+      providers: [
+        { provide: PostService, useClass: mockPostService },
+        { provide: LoggedUserService, useClass: mockLoggedUserService },
+      ],
+      declarations: [PosterComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
