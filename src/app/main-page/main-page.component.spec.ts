@@ -13,12 +13,12 @@ describe('MainPageComponent', () => {
   let loggedUserService: LoggedUserService;
   let postService: PostService;
 
-  class mockPostService {
-    getAll() {}
-    post() {}
+  class MockPostService {
+    getAll(): any {}
+    post(): any {}
   }
 
-  class mockLoggedUserService {
+  class MockLoggedUserService {
     username: string;
     name: string;
     id: number;
@@ -27,8 +27,8 @@ describe('MainPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       providers: [
-        { provide: PostService, useClass: mockPostService },
-        { provide: LoggedUserService, useClass: mockLoggedUserService },
+        { provide: PostService, useClass: MockPostService },
+        { provide: LoggedUserService, useClass: MockLoggedUserService },
       ],
       declarations: [MainPageComponent],
     }).compileComponents();

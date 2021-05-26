@@ -5,19 +5,19 @@ import { User } from '../user';
 
 import { SignupComponent } from './signup.component';
 
-class mockService {
-  addUser() {}
-  getUserByEmail() {}
-  getUserByUsername() {}
-}
-
 describe('SignupComponent', () => {
   let component: SignupComponent;
   let fixture: ComponentFixture<SignupComponent>;
 
+  class MockService {
+    addUser(): any {}
+    getUserByEmail(): any {}
+    getUserByUsername(): any {}
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [{ provide: SignupService, useClass: mockService }],
+      providers: [{ provide: SignupService, useClass: MockService }],
       declarations: [SignupComponent],
     }).compileComponents();
   });
