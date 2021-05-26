@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostingService } from '../posting.service';
+import { LoggedUserService } from '../logged-user.service';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-poster',
@@ -8,10 +9,16 @@ import { PostingService } from '../posting.service';
 })
 export class PosterComponent implements OnInit {
   body: string;
+  userExists: boolean;
 
-  constructor(private thingThatPosts: PostingService) {}
+  constructor(
+    private thingThatPosts: PostService,
+    private user: LoggedUserService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.userExists = !!this.user.name;
+  }
 
   submit(): void {
     this.thingThatPosts.post(this.body);
