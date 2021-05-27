@@ -1,5 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable } from 'rxjs';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { ObjectUnsubscribedError, Observable } from 'rxjs';
 import { LoggedUserService } from '../logged-user.service';
 import { Post } from '../post';
 import { PostService } from '../post.service';
@@ -26,6 +28,7 @@ describe('MainPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [FormsModule],
       providers: [
         { provide: PostService, useClass: MockPostService },
         { provide: LoggedUserService, useClass: MockLoggedUserService },
@@ -38,7 +41,9 @@ describe('MainPageComponent', () => {
   });
 
   beforeEach(() => {
-    spyOn(postService, 'getAll').and.returnValue(new Observable<Post[]>());
+    spyOn(postService, 'getAll').and.returnValue(
+      new Observable<Post[]>((o) => o.next([]))
+    );
     fixture = TestBed.createComponent(MainPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

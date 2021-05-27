@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { FirstPageComponent } from './first-page.component';
 
@@ -8,9 +9,9 @@ describe('FirstPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FirstPageComponent ]
-    })
-    .compileComponents();
+      imports: [FormsModule],
+      declarations: [FirstPageComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
