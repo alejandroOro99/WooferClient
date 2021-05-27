@@ -31,7 +31,7 @@ describe('LoginComponent', () => {
     id: number;
   }
 
-  function pressTheButton() {
+  function pressTheButton(): void {
     fixture.debugElement.query(By.css('button')).nativeElement.click();
   }
 

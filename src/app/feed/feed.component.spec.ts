@@ -28,7 +28,7 @@ describe('FeedComponent', () => {
 
   it('should create no child posts', () => {
     fixture.detectChanges();
-    expect(fixture.debugElement.query(By.css('app-post'))).toBeFalsy;
+    expect(fixture.debugElement.query(By.css('app-post'))).toBeFalsy();
   });
 
   it('should create 2 child posts', () => {
