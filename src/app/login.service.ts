@@ -17,9 +17,8 @@ interface IUser {
   providedIn: 'root',
 })
 export class LoginService {
-
   private urlLogin: string;
-/**
+  /**
    *
    * @param loggedUser The Service that will save the logged in user's info
    */
@@ -33,8 +32,7 @@ export class LoginService {
    * @param password The password that was entered to be checked by the backend
    * @returns The logged in users info
    */
-   public login(user: IUser): Observable<User> {
+  public login(user: IUser): Observable<User> {
     return this.http.post<User>(this.urlLogin, user);
   }
 }
-
