@@ -19,7 +19,11 @@ export class MainPageComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.name = this.loggedUser.name;
+    console.log(this.loggedUser.name);
+    if (this.loggedUser.name != undefined) {
+      this.name = this.loggedUser.name;
+    }
+
     this.postService.getAll().subscribe((res) => (this.feed = res));
   }
 }

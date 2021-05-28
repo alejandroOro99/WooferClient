@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FollowService } from '../follow.service';
+import { LoggedUserService } from '../logged-user.service';
 
 @Component({
   selector: 'app-profile',
@@ -6,7 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private followService: FollowService,
+    private loggedUser: LoggedUserService
+  ) {}
 
-  ngOnInit(): void {}
+  public followerCount: number;
+  public username: string;
+  userId: number;
+  ngOnInit(): void {
+    if (this.loggedUser != undefined) {
+      this.userId = this.loggedUser.id;
+      this.username = this.loggedUser.username;
+    }
+    this.getAllFollowers(this.userId);
+  }
+
+  getAllFollowers(userId: number) {
+    this.followService.getAllFollowers(userId).subscribe((res) => {
+      this.followerCount = res;
+    });
+  }
 }

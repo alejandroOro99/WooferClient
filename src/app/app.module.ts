@@ -16,6 +16,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PosterComponent } from './poster/poster.component';
 import { FirstPageComponent } from './first-page/first-page.component';
 import { AppInterceptorService } from './app-interceptor.service';
+import { CommentComponent } from './comment/comment.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AppInterceptorService } from './app-interceptor.service';
     MainPageComponent,
     PosterComponent,
     FirstPageComponent,
+    CommentComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
