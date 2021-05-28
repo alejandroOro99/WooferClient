@@ -4,6 +4,7 @@
   <span class="username">@{{ post.username }}</span>
   <div>{{ post.body }}</div>
   <span class="footnote">
-    Likes: {{ post.likes }} &nbsp;&nbsp;&nbsp; Comments: {{ post.comments }}
+    <span id="like" (click)="like()">Likes:</span>
+    {{ post.likes }} &nbsp;&nbsp;&nbsp; Comments: {{ post.comments }}
   </span>
 </div>

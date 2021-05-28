@@ -6,7 +6,7 @@ export class Post {
     this.likes = 0;
     this.comments = 0;
     this.userId = 0;
-    this.Id = 0;
+    this.id = 0;
   }
   username: string;
   name: string;
@@ -14,5 +14,5 @@ export class Post {
   likes: number;
   comments: number;
   userId: number;
-  Id: number;
+  id: number;
 }
