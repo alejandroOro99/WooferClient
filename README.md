@@ -1,27 +1,24 @@
-# AngularTest
+WOOFER
+Project Description
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12..
+Woofer is a full-stack dog-themed Twitter Clone. Users can create a new account and login. Users can create new posts (called woofs) and comment on other users woofs. Users can follow other users and like their woofs.
+Technologies Used
 
-## Development server
+    Angular
+    Bootstrap
+    Spring Boot
+    Postgres
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Features
 
-## Code scaffolding
+    Users can register a new account.
+    Users can login to their account.
+    Users can create new posts(woofs) as well as edit, and delete their posts.
+    Users can view other users woofs.
+    Users can like posts and follow other users.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To-do list:
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    JWT/OAuth authentication
+    Email verification when a user signs up
+    Users can Direct Message(DM) other users

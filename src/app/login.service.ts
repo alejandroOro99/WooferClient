@@ -10,28 +10,31 @@ interface IUser {
   password: string;
 }
 
+/**
+ * Provider for logging in a User
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class LoginService {
-  private urlLogin: string;
 
-  constructor(private http: HttpClient) {
+  private urlLogin: string;
+/**
+   *
+   * @param loggedUser The Service that will save the logged in user's info
+   */
+  constructor(private http: HttpClient, private loggedUser: LoggedUserService) {
     this.urlLogin = 'http://localhost:9000/user/login';
   }
 
-  public login(user: IUser): Observable<User> {
+  /**
+   * Attempts to verify the user's credentials and, if successful, log them in
+   * @param username The username that was entered to be checked by the backend
+   * @param password The password that was entered to be checked by the backend
+   * @returns The logged in users info
+   */
+   public login(user: IUser): Observable<User> {
     return this.http.post<User>(this.urlLogin, user);
   }
 }
 
-//Mish's Code
-// export class LoginService {
-//   constructor(private loggedUser: LoggedUserService) {}
-
-//   public login(username: string, password: string): boolean {
-//     // temporary login logic
-//     this.loggedUser.name = 'Morgan Freeman';
-//     return username === 'password' && password === 'username';
-//   }
-// }
