@@ -23,6 +23,7 @@ export class LoginService {
   public login(username: string, password: string): boolean {
     // temporary login logic
     this.loggedUser.name = 'Morgan Freeman';
+    this.loggedUser.id = 26;
     return username === 'password' && password === 'username';
   }
 }

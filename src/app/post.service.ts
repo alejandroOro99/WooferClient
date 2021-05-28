@@ -19,14 +19,23 @@ export class PostService {
     return this.http.get<Post[]>(this.urlS);
   }
 
-  post(body: string): void {
+  post(body: string): Observable<void> {
     if (this.loggedUser.name) {
-      this.http.post<Post>(this.url, {
+      return this.http.post<void>(this.url, {
         body: `${body}`,
         userId: this.loggedUser.id,
       });
     } else {
       alert('there is no logged user');
+      return new Observable<void>();
     }
+  }
+
+  // todo: cleanup this url
+  like(postId: number): Observable<number> {
+    return this.http.post<number>(
+      `http://localhost:9000/like/${this.loggedUser.id}/${postId}`,
+      null
+    );
   }
 }
