@@ -1,10 +1,11 @@
 WOOFER
 Project Description
 
-Woofer is a full-stack dog-themed Twitter Clone. Users can create posts (called woofs) and comment on them.
+Woofer is a full-stack dog-themed Twitter Clone. Users can create a new account and login. Users can create new posts (called woofs) and comment on other users woofs. Users can follow other users and like their woofs.
 Technologies Used
 
     Angular
+    Bootstrap
     Spring Boot
     Postgres
 
