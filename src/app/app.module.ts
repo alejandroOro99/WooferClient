@@ -12,9 +12,10 @@ import { SignupComponent } from './signup/signup.component';
 import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PosterComponent } from './poster/poster.component';
 import { FirstPageComponent } from './first-page/first-page.component';
+import { AppInterceptorService } from './app-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,13 @@ import { FirstPageComponent } from './first-page/first-page.component';
     CommonModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
