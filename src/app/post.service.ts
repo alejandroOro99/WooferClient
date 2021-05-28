@@ -9,14 +9,12 @@ import { Post } from './post';
 })
 export class PostService {
   private url: string;
-  private urlS: string;
   constructor(private http: HttpClient, private loggedUser: LoggedUserService) {
-    this.url = 'http://localhost:9000/post/';
-    this.urlS = 'http://localhost:9000/posts/';
+    this.url = 'http://localhost:9000/post';
   }
 
   getAll(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.urlS);
+    return this.http.get<Post[]>(`${this.url}s`);
   }
 
   post(body: string): Observable<void> {
