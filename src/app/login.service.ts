@@ -18,7 +18,7 @@ export class LoginService {
    * Attempts to verify the user's credentials and, if successful, log them in
    * @param username The username that was entered to be checked by the backend
    * @param password The password that was entered to be checked by the backend
-   * @returns
+   * @returns The logged in users info
    */
   public login(username: string, password: string): boolean {
     // temporary login logic
