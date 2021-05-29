@@ -1,0 +1,7 @@
+<div class="content" *ngFor="let comment of comments">
+  <h4>{{ comment["post"].name }}</h4>
+  <span class="username"
+    >{{ comment["post"]["user"]["username"] }}:
+    <div>{{ comment.body }}</div></span
+  >
+</div>

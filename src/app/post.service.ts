@@ -9,24 +9,31 @@ import { Post } from './post';
 })
 export class PostService {
   private url: string;
-  private urlS: string;
   constructor(private http: HttpClient, private loggedUser: LoggedUserService) {
-    this.url = 'http://localhost:9000/post/';
-    this.urlS = 'http://localhost:9000/posts/';
+    this.url = 'http://localhost:9000/post';
   }
 
   getAll(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.urlS);
+    return this.http.get<Post[]>(`${this.url}s`);
   }
 
-  post(body: string): void {
+  post(body: string): Observable<void> {
     if (this.loggedUser.name) {
-      this.http.post<Post>(this.url, {
+      return this.http.post<void>(this.url, {
         body: `${body}`,
         userId: this.loggedUser.id,
       });
     } else {
       alert('there is no logged user');
+      return new Observable<void>();
     }
+  }
+
+  // todo: cleanup this url
+  like(postId: number): Observable<number> {
+    return this.http.post<number>(
+      `http://localhost:9000/like/${this.loggedUser.id}/${postId}`,
+      null
+    );
   }
 }

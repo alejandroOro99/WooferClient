@@ -1,12 +1,6 @@
 export class Post {
-  constructor() {
-    this.username = '';
-    this.name = '';
-    this.body = '';
-    this.likes = 0;
-    this.comments = 0;
-    this.userId = 0;
-    this.Id = 0;
+  constructor(id: number) {
+    this.id = id;
   }
   username: string;
   name: string;
@@ -14,5 +8,5 @@ export class Post {
   likes: number;
   comments: number;
   userId: number;
-  Id: number;
+  id: number;
 }

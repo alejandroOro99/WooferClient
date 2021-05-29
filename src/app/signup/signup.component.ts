@@ -20,18 +20,14 @@ export class SignupComponent implements OnInit {
 
   constructor(private signupService: SignupService) {}
 
-  ngOnInit(): void {
-    this.user = new User();
-  }
+  ngOnInit(): void {}
 
   validateCredentials(): void {
     if (
       this.userEmailValidation == null &&
       this.userUsernameValidation == null
     ) {
-      this.signupService.addUser(this.user).subscribe((res) => {
-        this.user = new User();
-      });
+      this.signupService.addUser(this.user).subscribe((res) => {});
       alert('user created');
     } else {
       if (this.userEmailValidation == null) {

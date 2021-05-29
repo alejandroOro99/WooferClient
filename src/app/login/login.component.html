@@ -7,18 +7,28 @@
       </div>
       <label>
         Username:<br />
-        <input type="text" [(ngModel)]="username" />
+        <input
+          class="form-control"
+          type="text"
+          [(ngModel)]="this.username"
+          required
+        />
       </label>
       <br /><br />
       <label>
         Password:<br />
-        <input type="password" [(ngModel)]="password" />
+        <input
+          class="form-control"
+          type="password"
+          [(ngModel)]="this.password"
+          required
+        />
       </label>
       <br /><br />
       <p>
         <button (click)="submit()" class="btn btn-primary">Login</button>
       </p>
-      <a [routerLink]="['/signup']">signup</a>
+      <a routerLink="/signup">signup</a>
     </div>
   </div>
 </div> -->

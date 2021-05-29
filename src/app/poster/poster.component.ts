@@ -21,6 +21,6 @@ export class PosterComponent implements OnInit {
   }
 
   submit(): void {
-    this.thingThatPosts.post(this.body);
+    this.thingThatPosts.post(this.body).subscribe();
   }
 }

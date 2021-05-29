@@ -3,7 +3,15 @@
   &nbsp;
   <span class="username">@{{ post.username }}</span>
   <div>{{ post.body }}</div>
-  <span class="footnote">
-    Likes: {{ post.likes }} &nbsp;&nbsp;&nbsp; Comments: {{ post.comments }}
-  </span>
+  <span class="footnote"> Likes: {{ post.likes }} </span>
+  <div *ngIf="showComments">
+    ------------------------------------------
+    <app-comment [postId]="post.id"></app-comment>
+  </div>
+  <input name="commentInput" type="text" [(ngModel)]="commentBody" />
+  <button (click)="commentBtn()">Comment</button>
+  <br />
+  <br />
+  <button (click)="showComments = true">Show Comments</button>
+  <button (click)="showComments = false">Close Comments</button>
 </div>
