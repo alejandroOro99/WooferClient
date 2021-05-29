@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Follow } from './follow';
 
+/**
+ * makes all calls to the api for followers
+ */
 @Injectable({
   providedIn: 'root',
 })
@@ -19,10 +22,12 @@ export class FollowService {
   getAllFollowers(userId: number): Observable<number> {
     return this.http.get<number>(this.urlGetFollowers + userId);
   }
+
   getFollowersByFollowerId(userId: number): Observable<Follow[]> {
     return this.http.get<Follow[]>(this.urlGetFollowersByFollowerId + userId);
   }
-  unfollow(follower: Follow) {
+
+  unfollow(follower: Follow): void {
     this.http.delete(this.urlFollow + follower);
   }
 }

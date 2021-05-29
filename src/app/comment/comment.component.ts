@@ -26,13 +26,13 @@ export class CommentComponent implements OnInit {
     this.getCommentsByPost(this.postId);
   }
 
-  private addComment(body: string, userId: number, postId: number) {
-    let newComment = new Comment(body, postId, userId);
+  private addComment(body: string, userId: number, postId: number): void {
+    const newComment = new Comment(body, postId, userId);
     this.commentService.addComment(newComment).subscribe((res) => {
       this.comments.push(res);
     });
   }
-  private getCommentsByPost(postId: number) {
+  private getCommentsByPost(postId: number): void {
     this.commentService.getCommentsByPost(postId).subscribe((res) => {
       this.comments = res;
       console.log(this.comments);
