@@ -38,7 +38,7 @@
 
 <ol class="breadcrumb">
   <li>Injectables</li>
-  <li>LoginService</li>
+  <li>PostService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -56,14 +56,14 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/login.service.ts</code>
+            <code>src/app/post.service.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Provider for logging in a User</p>
+                <p>makes all api calls for posts</p>
 
             </p>
 
@@ -83,7 +83,7 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Private</span>
-                                <a href="#urlLogin">urlLogin</a>
+                                <a href="#url">url</a>
                             </li>
                         </ul>
                     </td>
@@ -98,8 +98,13 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#login">login</a>
+                                <a href="#getAll">getAll</a>
+                            </li>
+                            <li>
+                                <a href="#like">like</a>
+                            </li>
+                            <li>
+                                <a href="#post">post</a>
                             </li>
                         </ul>
                     </td>
@@ -124,7 +129,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/login.service.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/post.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -154,6 +159,8 @@
                                                     </td>
                                                     
                                                         <td>
+                                                                <code><p>injected http client</p>
+</code>
                                                         </td>
                                                 </tr>
                                                 <tr>
@@ -168,7 +175,7 @@
                                                     </td>
                                                     
                                                         <td>
-                                                                <code><p>The Service that will save the logged in user&#39;s info</p>
+                                                                <code><p>injected logged user</p>
 </code>
                                                         </td>
                                                 </tr>
@@ -190,35 +197,80 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="login"></a>
+                    <a name="getAll"></a>
                     <span class="name">
                         <b>
-                            <span class="modifier">Public</span>
-                            login
+                            getAll
                         </b>
-                        <a href="#login"><span class="icon ion-ios-link"></span></a>
+                        <a href="#getAll"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>login(user: <a href="../interfaces/IUser.html">IUser</a>)</code>
+<code>getAll()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/login.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/post.service.ts:30</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Attempts to verify the user&#39;s credentials and, if successful, log them in</p>
+                    <div class="io-description"><p>retrieves all of the posts</p>
+</div>
+
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../classes/Post.html" target="_self" >Observable&lt;Post[]&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>observable that retrieves a list of all posts upon completion</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="like"></a>
+                    <span class="name">
+                        <b>
+                            like
+                        </b>
+                        <a href="#like"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>like(postId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="56"
+                            class="link-to-prism">src/app/post.service.ts:56</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>likes a post</p>
 </div>
 
                     <div class="io-description">
@@ -229,13 +281,14 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>user</td>
+                                    <td>postId</td>
                                     <td>
-                                                <code><a href="../interfaces/IUser.html" target="_self" >IUser</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                     </td>
 
                                     <td>
@@ -243,6 +296,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>id of post to like</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -250,11 +307,89 @@
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../classes/User.html" target="_self" >Observable&lt;User&gt;</a></code>
+                        <b>Returns : </b>    <code>Observable&lt;number&gt;</code>
 
                     </div>
                     <div class="io-description">
-                        <p>The logged in users info</p>
+                        <p>observable that returns the number of total likes for relevent post upon completion</p>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post"></a>
+                    <span class="name">
+                        <b>
+                            post
+                        </b>
+                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>post(body: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/post.service.ts:39</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>adds a post to the database</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>body</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>body of the post</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;void&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        <p>observable that returns nothing upon completion</p>
 
                     </div>
                 </td>
@@ -271,12 +406,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="urlLogin"></a>
+                        <a name="url"></a>
                         <span class="name">
                             <b>
                                 <span class="modifier">Private</span>
-                            urlLogin</b>
-                            <a href="#urlLogin"><span class="icon ion-ios-link"></span></a>
+                            url</b>
+                            <a href="#url"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
@@ -288,10 +423,16 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/login.service.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/post.service.ts:17</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>url for makeing post calls</p>
+</div>
+                    </td>
+                </tr>
 
             </tbody>
         </table>
@@ -303,40 +444,64 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
 import { Injectable } from &#x27;@angular/core&#x27;;
-import { Observable, of } from &#x27;rxjs&#x27;;
-import { catchError, map, tap } from &#x27;rxjs/operators&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
 import { LoggedUserService } from &#x27;./logged-user.service&#x27;;
-import { User } from &#x27;./user&#x27;;
-
-interface IUser {
-  username: string;
-  password: string;
-}
+import { Post } from &#x27;./post&#x27;;
 
 /**
- * Provider for logging in a User
+ * makes all api calls for posts
  */
 @Injectable({
   providedIn: &#x27;root&#x27;,
 })
-export class LoginService {
-  private urlLogin: string;
+export class PostService {
   /**
-   *
-   * @param loggedUser The Service that will save the logged in user&#x27;s info
+   * url for makeing post calls
+   */
+  private url: string;
+  /**
+   * @param http injected http client
+   * @param loggedUser injected logged user
    */
   constructor(private http: HttpClient, private loggedUser: LoggedUserService) {
-    this.urlLogin &#x3D; &#x27;http://localhost:9000/user/login&#x27;;
+    this.url &#x3D; &#x27;http://localhost:9000/post&#x27;;
   }
 
   /**
-   * Attempts to verify the user&#x27;s credentials and, if successful, log them in
-   * @param username The username that was entered to be checked by the backend
-   * @param password The password that was entered to be checked by the backend
-   * @returns The logged in users info
+   * retrieves all of the posts
+   * @returns observable that retrieves a list of all posts upon completion
    */
-  public login(user: IUser): Observable&lt;User&gt; {
-    return this.http.post&lt;User&gt;(this.urlLogin, user);
+  getAll(): Observable&lt;Post[]&gt; {
+    return this.http.get&lt;Post[]&gt;(&#x60;${this.url}s&#x60;);
+  }
+
+  /**
+   * adds a post to the database
+   * @param body body of the post
+   * @returns observable that returns nothing upon completion
+   */
+  post(body: string): Observable&lt;void&gt; {
+    if (this.loggedUser.name) {
+      return this.http.post&lt;void&gt;(this.url, {
+        body: &#x60;${body}&#x60;,
+        userId: this.loggedUser.id,
+      });
+    } else {
+      alert(&#x27;there is no logged user&#x27;);
+      return new Observable&lt;void&gt;();
+    }
+  }
+
+  /**
+   * likes a post
+   * @param postId id of post to like
+   * @returns observable that returns the number of total likes for relevent post upon completion
+   */
+  like(postId: number): Observable&lt;number&gt; {
+    return this.http.post&lt;number&gt;(
+      &#x60;http://localhost:9000/like/${this.loggedUser.id}/${postId}&#x60;,
+      null
+    );
   }
 }
 </code></pre>
@@ -372,7 +537,7 @@ export class LoginService {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
-            var COMPODOC_CURRENT_PAGE_URL = 'LoginService.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'PostService.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
