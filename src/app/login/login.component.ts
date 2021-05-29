@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   submit(): void {
+    console.log('submit method running');
     if (!this.username) {
       this.errorState = true;
       this.errorMessage = 'Username is required';

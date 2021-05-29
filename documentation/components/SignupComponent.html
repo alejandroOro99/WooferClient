@@ -144,6 +144,12 @@
                             <li>
                                 <a href="#user">user</a>
                             </li>
+                            <li>
+                                <a href="#userEmailValidation">userEmailValidation</a>
+                            </li>
+                            <li>
+                                <a href="#userUsernameValidation">userUsernameValidation</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -157,10 +163,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                <a href="#getUserByEmail">getUserByEmail</a>
+                            </li>
+                            <li>
+                                <a href="#getUserByUserame">getUserByUserame</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
                                 <a href="#submit">submit</a>
+                            </li>
+                            <li>
+                                <a href="#validateCredentials">validateCredentials</a>
                             </li>
                         </ul>
                     </td>
@@ -180,15 +195,45 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor()</code>
+<code>constructor(signupService: <a href="../injectables/SignupService.html">SignupService</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/signup/signup.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/signup/signup.component.ts:19</a></div>
                             </td>
                         </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>signupService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SignupService.html" target="_self" >SignupService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
 </section>
@@ -202,6 +247,146 @@
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserByEmail"></a>
+                    <span class="name">
+                        <b>
+                            getUserByEmail
+                        </b>
+                        <a href="#getUserByEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserByEmail(user: <a href="../classes/User.html">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/signup/signup.component.ts:47</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserByUserame"></a>
+                    <span class="name">
+                        <b>
+                            getUserByUserame
+                        </b>
+                        <a href="#getUserByUserame"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getUserByUserame(user: <a href="../classes/User.html">User</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="54"
+                            class="link-to-prism">src/app/signup/signup.component.ts:54</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -224,8 +409,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="20"
-                            class="link-to-prism">src/app/signup/signup.component.ts:20</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="23"
+                            class="link-to-prism">src/app/signup/signup.component.ts:23</a></div>
                 </td>
             </tr>
 
@@ -263,8 +448,47 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/signup/signup.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/signup/signup.component.ts:61</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateCredentials"></a>
+                    <span class="name">
+                        <b>
+                            validateCredentials
+                        </b>
+                        <a href="#validateCredentials"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>validateCredentials()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/signup/signup.component.ts:27</a></div>
                 </td>
             </tr>
 
@@ -304,9 +528,14 @@
 
                         </td>
                     </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/signup/signup.component.ts:11</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/signup/signup.component.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -327,13 +556,12 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
+                            <i>Default value : </i><code>false</code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">src/app/signup/signup.component.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/signup/signup.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -360,7 +588,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/signup/signup.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/signup/signup.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -387,7 +615,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/signup/signup.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/signup/signup.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -412,14 +640,63 @@
 
                         </td>
                     </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/signup/signup.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userEmailValidation"></a>
+                        <span class="name">
+                            <b>
+                            userEmailValidation</b>
+                            <a href="#userEmailValidation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>new User()</code>
+                            <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User</a></code>
+
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/signup/signup.component.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/signup/signup.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="userUsernameValidation"></a>
+                        <span class="name">
+                            <b>
+                            userUsernameValidation</b>
+                            <a href="#userUsernameValidation"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="../classes/User.html" target="_self" >User</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/signup/signup.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -433,6 +710,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { SignupService } from &#x27;../signup.service&#x27;;
 import { User } from &#x27;../user&#x27;;
 
 @Component({
@@ -441,17 +719,55 @@ import { User } from &#x27;../user&#x27;;
   styleUrls: [&#x27;./signup.component.css&#x27;],
 })
 export class SignupComponent implements OnInit {
-  errorState: boolean;
-  errorMessage: string;
+  errorState &#x3D; false;
+  errorMessage &#x3D; &#x27;&#x27;;
 
   password1: string;
   password2: string;
 
-  user: User &#x3D; new User();
+  user: User;
+  userEmailValidation: User;
+  userUsernameValidation: User;
 
-  constructor() {}
+  constructor(private signupService: SignupService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user &#x3D; new User();
+  }
+
+  validateCredentials(): void {
+    if (
+      this.userEmailValidation &#x3D;&#x3D; null &amp;&amp;
+      this.userUsernameValidation &#x3D;&#x3D; null
+    ) {
+      this.signupService.addUser(this.user).subscribe((res) &#x3D;&gt; {
+        this.user &#x3D; new User();
+      });
+      alert(&#x27;user created&#x27;);
+    } else {
+      if (this.userEmailValidation &#x3D;&#x3D; null) {
+        alert(&#x27;Username already in use&#x27;);
+      } else if (this.userUsernameValidation &#x3D;&#x3D; null) {
+        alert(&#x27;Email already in use&#x27;);
+      } else {
+        alert(&#x27;Username and email already in use&#x27;);
+      }
+    }
+  }
+
+  getUserByEmail(user: User): void {
+    this.signupService.getUserByEmail(user.email).subscribe((res) &#x3D;&gt; {
+      this.userEmailValidation &#x3D; res;
+      this.validateCredentials();
+    });
+  }
+
+  getUserByUserame(user: User): void {
+    this.signupService.getUserByUsername(user.username).subscribe((res) &#x3D;&gt; {
+      this.userUsernameValidation &#x3D; res;
+      this.getUserByEmail(user);
+    });
+  }
 
   submit(): void {
     this.errorState &#x3D; false;
@@ -469,7 +785,8 @@ export class SignupComponent implements OnInit {
       this.errorMessage &#x3D; &#x27;Date of birth is required&#x27;;
     } else {
       this.user.password &#x3D; this.password1;
-      alert(&#x27;user created&#x27;);
+      // Method flow: getUserByUsername-&gt;getUserByEmail-&gt;validateCredentials
+      this.getUserByUserame(this.user);
     }
   }
 }
@@ -587,7 +904,7 @@ export class SignupComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="mx-auto">  <div class="card">    <div class="card-header">Enter user info</div>    <div class="card-body" (keydown.enter)="submit()">      <div *ngIf="errorState" class="error">        {{ errorMessage }}      </div>      <div class="row">        <div class="column">          <label>            Username:<br />            <input type="text" [(ngModel)]="user.username" required />          </label>          <br /><br />          <label>            Password:<br />            <input type="password" [(ngModel)]="password1" required />          </label>          <br /><br />          <label>            Confirm Password:<br />            <input type="password" [(ngModel)]="password2" required />          </label>          <br /><br />          <label>            Name:<br />            <input type="text" [(ngModel)]="user.name" />          </label>        </div>        <div class="column">          <label>            Email:<br />            <input type="email" [(ngModel)]="user.email" />          </label>          <br /><br />          <label>            Date of birth:<br />            <input type="date" [(ngModel)]="user.dob" />          </label>          <br /><br />          <label>            Phone number:<br />            <input type="tel" [(ngModel)]="user.phone" />          </label>          <br /><br />          <p>            <button (click)="submit()" class="btn btn-primary">Signup</button>          </p>        </div>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'PostComponent', 'selector': 'app-post'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'PostComponent', 'selector': 'app-post'},{'name': 'PosterComponent', 'selector': 'app-poster'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignupComponent'};
 </script>
