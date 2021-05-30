@@ -31,8 +31,14 @@ export class MainPageComponent implements OnInit {
    * fetches the logged users name than fetches all posts
    */
   ngOnInit(): void {
+<<<<<<< HEAD
     if (localStorage.getItem('username') !== undefined) {
       this.name = localStorage.getItem('name');
+=======
+
+    if (this.loggedUser.name !== undefined) {
+      this.name = this.loggedUser.name;
+>>>>>>> 90a49d6882bfc6855327029b4511776c71bd3382
     }
 
     this.postService.getAll().subscribe((res) => (this.feed = res));
