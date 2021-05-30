@@ -78,6 +78,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('likes', JSON.stringify(x));
           });
 
+          localStorage.setItem('timestamp', res.timestamp.toString());
           this.router.navigate(['mainPage']);
         },
         (error) => {

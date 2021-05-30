@@ -1,3 +1,4 @@
+import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../post';
@@ -15,24 +16,30 @@ export class MainPageComponent implements OnInit {
   /**
    * name of the loggedin user
    */
-  name: string;
-
-  username: string;
-
+  public username: string;
+  public name: string;
+  public profileName: string;
   /**
    * list of posts that will be displayed
    */
   feed: Post[] = [];
-
+  searchUser: boolean;
   /**
    *
    * @param postService injected post service
    */
   constructor(
     private postService: PostService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private locationStrategy: LocationStrategy
   ) {}
 
+  preventBackButton(): void {
+    history.pushState(null, null, location.href);
+    this.locationStrategy.onPopState(() => {
+      history.pushState(null, null, location.href);
+    });
+  }
   /**
    * fetches the logged users name than fetches all posts
    */
@@ -47,5 +54,7 @@ export class MainPageComponent implements OnInit {
     this.postService
       .getByUsername(this.username)
       .subscribe((res) => (this.feed = res));
+    this.preventBackButton();
+    this.searchUser = false;
   }
 }

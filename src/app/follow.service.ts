@@ -29,4 +29,7 @@ export class FollowService {
   unfollow(follower: Follow): void {
     this.http.delete(this.urlFollow + follower);
   }
+  follow(follow: Follow): Observable<Follow> {
+    return this.http.post<Follow>(this.urlFollow, follow);
+  }
 }

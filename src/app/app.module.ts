@@ -17,6 +17,7 @@ import { FirstPageComponent } from './first-page/first-page.component';
 import { AppInterceptorService } from './app-interceptor.service';
 import { CommentComponent } from './comment/comment.component';
 import { ProfileComponent } from './profile/profile.component';
+import { WoofComponent } from './woof/woof.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProfileComponent } from './profile/profile.component';
     FirstPageComponent,
     CommentComponent,
     ProfileComponent,
+    WoofComponent,
   ],
   imports: [
     BrowserModule,
