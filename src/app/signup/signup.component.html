@@ -34,11 +34,6 @@
           </label>
           <br /><br />
           <label>
-            Date of birth:<br />
-            <input type="date" [(ngModel)]="user.dob" />
-          </label>
-          <br /><br />
-          <label>
             Phone number:<br />
             <input type="tel" [(ngModel)]="user.phone" />
           </label>
@@ -74,7 +69,7 @@
               type="text"
               placeholder="Name"
               class="input-border w-100 p-16"
-              [(ngModel)]="user.username"
+              [(ngModel)]="user.name"
               required
             />
           </div>
@@ -84,15 +79,6 @@
               placeholder="Email"
               class="input-border w-100 p-16"
               [(ngModel)]="user.email"
-              required
-            />
-          </div>
-          <div class="p-y-12">
-            <input
-              type="date"
-              placeholder="Date of Birth"
-              class="input-border w-100 p-16"
-              [(ngModel)]="user.dob"
               required
             />
           </div>
