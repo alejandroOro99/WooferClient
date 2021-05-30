@@ -57,14 +57,12 @@ export class PostComponent implements OnInit {
    * adds a comment to the database
    * @param body comment body
    * @param userId id of current user
-   * @param postId id of relevent post (why is this a parameter when you can grab it as a attribute?)
+   * @param postId id of relevent post (why is this a parameter when you can grab it as a local storage item?)
    */
   private addComment(body: string, userId: number, postId: number): void {
     const newComment = new Comment(body, postId, userId);
     this.commentService.addComment(newComment).subscribe((res) => {});
   }
-
-  //dhfgioahfgiudehuifahufgeuig
 
   /**
    * runs upon button press: likes a post
