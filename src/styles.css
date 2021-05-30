@@ -99,12 +99,24 @@ a:hover {
   padding: 20px;
 }
 
+.p-b-8 {
+  padding-bottom: 0.5rem;
+}
+
 .p-b-12 {
   padding-bottom: 12px;
 }
 
+.p-t-8 {
+  padding-top: 0.5rem;
+}
+
 .p-t-12 {
   padding-top: 12px;
+}
+
+.p-t-16 {
+  padding-top: 1rem;
 }
 
 .p-x-4 {
@@ -170,6 +182,10 @@ a:hover {
 
 .m-t-64 {
   margin-top: 64px;
+}
+
+.nm-l-16 {
+  margin-left: -1rem;
 }
 
 .m-r-20 {
@@ -404,6 +420,11 @@ a:hover {
   border-color: var(--main-color);
 }
 
+.btn-primary:hover {
+  background-color: hsl(35, 100%, 55%);
+  border-color: hsl(35, 100%, 55%);
+}
+
 .btn-primary-inverted {
   color: var(--main-color);
   background-color: #fff;
@@ -429,4 +450,8 @@ a:hover {
 
 .like:hover {
   color: hsl(5, 100%, 55%);
+}
+
+.no-resize {
+  resize: none;
 }
