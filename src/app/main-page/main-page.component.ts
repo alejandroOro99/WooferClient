@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
@@ -16,6 +17,8 @@ export class MainPageComponent implements OnInit {
    */
   name: string;
 
+  username: string;
+
   /**
    * list of posts that will be displayed
    */
@@ -25,7 +28,10 @@ export class MainPageComponent implements OnInit {
    *
    * @param postService injected post service
    */
-  constructor(private postService: PostService) {}
+  constructor(
+    private postService: PostService,
+    private route: ActivatedRoute
+  ) {}
 
   /**
    * fetches the logged users name than fetches all posts
@@ -34,7 +40,12 @@ export class MainPageComponent implements OnInit {
     if (localStorage.getItem('username') !== undefined) {
       this.name = localStorage.getItem('name');
     }
+    this.route.params.subscribe((p) => {
+      this.username = p['username'];
+    });
 
-    this.postService.getAll().subscribe((res) => (this.feed = res));
+    this.postService
+      .getByUsername(this.username)
+      .subscribe((res) => (this.feed = res));
   }
 }

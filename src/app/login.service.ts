@@ -32,4 +32,8 @@ export class LoginService {
   public login(user: IUser): Observable<User> {
     return this.http.post<User>(this.urlLogin, user);
   }
+
+  public getLikes(userId: number): Observable<number[]> {
+    return this.http.get<number[]>('http://localhost:9000/like/' + userId);
+  }
 }

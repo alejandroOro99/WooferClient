@@ -74,6 +74,10 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('name', res.name);
           localStorage.setItem('id', res.id.toString());
 
+          this.loginService.getLikes(res.id).subscribe((x) => {
+            localStorage.setItem('likes', JSON.stringify(x));
+          });
+
           this.router.navigate(['mainPage']);
         },
         (error) => {

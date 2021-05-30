@@ -30,6 +30,14 @@ export class PostService {
   }
 
   /**
+   * retrieves all of the posts by username
+   * @returns observable that retrieves a list of posts upon completion
+   */
+  getByUsername(username: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.url}s/user/${username}`);
+  }
+
+  /**
    * adds a post to the database
    * @param body body of the post
    * @returns observable that returns nothing upon completion
