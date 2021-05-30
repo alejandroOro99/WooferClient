@@ -46,11 +46,9 @@ export class SignupComponent implements OnInit {
    * @param signupService injected signup service
    */
   constructor(private signupService: SignupService) {}
-
-  /**
-   * @ignore
-   */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = new User();
+  }
 
   validateCredentials(): void {
     if (

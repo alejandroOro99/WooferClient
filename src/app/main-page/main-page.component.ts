@@ -36,6 +36,7 @@ export class MainPageComponent implements OnInit {
    * fetches the logged users name than fetches all posts
    */
   ngOnInit(): void {
+
     if (this.loggedUser.name !== undefined) {
       this.name = this.loggedUser.name;
     }

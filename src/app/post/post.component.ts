@@ -31,6 +31,7 @@ export class PostComponent implements OnInit {
    * idk
    */
   commentBody: string;
+  public currentPostId: number;
 
   /**
    * @param commentService injected comment service
