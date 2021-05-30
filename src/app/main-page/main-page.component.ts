@@ -48,7 +48,7 @@ export class MainPageComponent implements OnInit {
       this.name = localStorage.getItem('name');
     }
     this.route.params.subscribe((p) => {
-      this.username = p['username'];
+      this.username = p.username;
     });
 
     this.postService
