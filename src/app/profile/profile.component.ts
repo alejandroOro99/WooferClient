@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     this.getAllFollowers(this.userId);
   }
 
-  getAllFollowers(userId: number) {
+  getAllFollowers(userId: number): void {
     this.followService.getAllFollowers(userId).subscribe((res) => {
       this.followerCount = res;
     });

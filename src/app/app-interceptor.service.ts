@@ -9,13 +9,19 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+/**
+ * intercepts exceptions
+ */
 @Injectable({
   providedIn: 'root',
 })
 export class AppInterceptorService implements HttpInterceptor {
+  /**
+   * @ignore
+   */
   constructor() {}
 
-  handleError(error: HttpErrorResponse) {
+  handleError(error: HttpErrorResponse): Observable<never> {
     console.log('error occurred');
     return throwError(error.error);
   }
