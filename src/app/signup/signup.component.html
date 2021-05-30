@@ -1,7 +1,7 @@
-<div class="mx-auto">
+<!-- <div class="mx-auto">
   <div class="card">
     <div class="card-header">Enter user info</div>
-    <div class="card-body" (keydown.enter)="submit()">
+    <div class="card-body">
       <div *ngIf="errorState" class="error">
         {{ errorMessage }}
       </div>
@@ -46,6 +46,98 @@
           <p>
             <button (click)="submit()" class="btn btn-primary">Signup</button>
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="d-flex flex-column w-600 align-items-center">
+      <div class="height-53 row w-100 space-between p-x-16 m-t-16">
+        <div class="min-width-56"></div>
+        <div>
+          <img src="../../assets/paw.png" alt="paw icon" class="paw-logo" />
+        </div>
+        <div>
+          <button class="btn btn-primary round" routerLink="/login">
+            Log in
+          </button>
+        </div>
+      </div>
+      <div class="d-flex flex-column w-100">
+        <div class="m-x-32">
+          <div class="m-y-16 font-size-23 bold">Create your account</div>
+          <div class="p-y-12">
+            <input
+              type="text"
+              placeholder="Name"
+              class="input-border w-100 p-16"
+              [(ngModel)]="user.username"
+              required
+            />
+          </div>
+          <div class="p-y-12">
+            <input
+              type="email"
+              placeholder="Email"
+              class="input-border w-100 p-16"
+              [(ngModel)]="user.email"
+              required
+            />
+          </div>
+          <div class="p-y-12">
+            <input
+              type="date"
+              placeholder="Date of Birth"
+              class="input-border w-100 p-16"
+              [(ngModel)]="user.dob"
+              required
+            />
+          </div>
+          <div class="p-y-12">
+            <input
+              type="text"
+              placeholder="Username"
+              class="input-border w-100 p-16"
+              [(ngModel)]="user.username"
+              required
+            />
+          </div>
+          <div class="p-y-12">
+            <input
+              type="password"
+              placeholder="Password"
+              class="input-border w-100 p-16"
+              [(ngModel)]="password1"
+              required
+            />
+          </div>
+          <div class="p-y-12">
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              class="input-border w-100 p-16"
+              [(ngModel)]="password2"
+              required
+            />
+          </div>
+          <div class="m-t-64 text-center">
+            <div *ngIf="errorState" class="error">
+              {{ errorMessage }}
+            </div>
+            <span
+              >By signing up, you agree to the Terms of Service and Privacy
+              Policy, including Cookie Use. Others will be able to find you by
+              email or phone number when provided · Privacy Options</span
+            >
+          </div>
+          <div class="m-t-16 p-x-32">
+            <button class="btn btn-primary w-100 round" (click)="submit()">
+              Sign up
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -61,6 +61,7 @@ export class LoginComponent implements OnInit {
    * runs upon button press: derermins weither the user can be submitted, than submits them
    */
   submit(): void {
+    console.log('submit method running');
     if (!this.username) {
       this.errorState = true;
       this.errorMessage = 'Username is required';
