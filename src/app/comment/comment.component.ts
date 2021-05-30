@@ -25,6 +25,12 @@ export class CommentComponent implements OnInit {
     console.log(this.postId);
     this.getCommentsByPost(this.postId);
   }
+  private addComment(body: string, userId: number, postId: number): void {
+    const newComment = new Comment(body, postId, userId);
+    this.commentService.addComment(newComment).subscribe((res) => {
+      this.comments.push(res);
+    });
+  }
 
   private getCommentsByPost(postId: number): void {
     this.commentService.getCommentsByPost(postId).subscribe((res) => {

@@ -1,3 +1,6 @@
+/**
+ * holds user data
+ */
 export class User {
   id: number;
   username: string;

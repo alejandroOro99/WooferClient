@@ -1,3 +1,6 @@
+/**
+ * holds data for a post
+ */
 export class Post {
   constructor(id: number) {
     this.id = id;
