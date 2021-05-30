@@ -1,35 +1,21 @@
-import { TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import {
   HttpTestingController,
   HttpClientTestingModule,
 } from '@angular/common/http/testing';
 
 import { PostService } from './post.service';
-import { HttpClient } from '@angular/common/http';
-import { LoggedUserService } from './logged-user.service';
 
 describe('PostService', () => {
   let service: PostService;
   let Http: HttpTestingController;
 
-  let loggedUser: LoggedUserService;
-
-  class MockLoggedUserService {
-    username: string;
-    name: string;
-    id: number;
-  }
-
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [
-        { provide: LoggedUserService, useClass: MockLoggedUserService },
-      ],
     });
     service = TestBed.inject(PostService);
     Http = TestBed.inject(HttpTestingController);
-    loggedUser = TestBed.inject(LoggedUserService);
   });
 
   it('should be created', () => {
@@ -47,7 +33,7 @@ describe('PostService', () => {
   });
 
   it('should post', () => {
-    loggedUser.name = 'Modern Beowulf';
+    localStorage.setItem('name', 'Modern Beowulf');
     service.post('The Sachem of Slug').subscribe();
 
     const req = Http.expectOne('http://localhost:9000/post/');
@@ -57,14 +43,14 @@ describe('PostService', () => {
 
   it('should deny on no active user', () => {
     spyOn(window, 'alert');
-    loggedUser.name = null;
+    localStorage.setItem('name', undefined);
     service.post('The Sachem of Slug').subscribe();
 
     expect(window.alert).toHaveBeenCalled();
   });
 
   it('should like', () => {
-    loggedUser.id = 1;
+    localStorage.setItem('id', '1');
     service.like(1).subscribe();
 
     const req = Http.expectOne('http://localhost:9000/like/1/1');

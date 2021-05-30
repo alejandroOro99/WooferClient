@@ -2,7 +2,7 @@
  * holds data for a post
  */
 export class Post {
-  constructor(id: number) {
+  constructor(id?: number) {
     this.id = id;
   }
   username: string;

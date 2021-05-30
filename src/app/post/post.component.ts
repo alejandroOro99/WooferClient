@@ -3,7 +3,6 @@ import { CommentService } from '../comment.service';
 import { Post } from '../post';
 
 import { Comment } from '../comment';
-import { LoggedUserService } from '../logged-user.service';
 import { PostService } from '../post.service';
 
 /**
@@ -35,12 +34,10 @@ export class PostComponent implements OnInit {
 
   /**
    * @param commentService injected comment service
-   * @param loggedUser injected logged user service
    * @param service injected post service
    */
   constructor(
     private commentService: CommentService,
-    private loggedUser: LoggedUserService,
     private service: PostService
   ) {}
 
@@ -48,7 +45,7 @@ export class PostComponent implements OnInit {
    * fetches the logged users id
    */
   ngOnInit(): void {
-    this.userId = this.loggedUser.id;
+    this.userId = Number(localStorage.getItem('id'));
   }
 
   /**
@@ -61,14 +58,12 @@ export class PostComponent implements OnInit {
    * adds a comment to the database
    * @param body comment body
    * @param userId id of current user
-   * @param postId id of relevent post (why is this a parameter when you can grab it as a attribute?)
+   * @param postId id of relevent post (why is this a parameter when you can grab it as a local storage item?)
    */
   private addComment(body: string, userId: number, postId: number): void {
     const newComment = new Comment(body, postId, userId);
     this.commentService.addComment(newComment).subscribe((res) => {});
   }
-
-  //dhfgioahfgiudehuifahufgeuig
 
   /**
    * runs upon button press: likes a post
