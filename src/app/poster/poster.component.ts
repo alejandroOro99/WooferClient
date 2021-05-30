@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggedUserService } from '../logged-user.service';
 import { PostService } from '../post.service';
 
 /**
@@ -25,16 +24,13 @@ export class PosterComponent implements OnInit {
    * @param thingThatPosts injected post service
    * @param user injected user service
    */
-  constructor(
-    private thingThatPosts: PostService,
-    private user: LoggedUserService
-  ) {}
+  constructor(private thingThatPosts: PostService) {}
 
   /**
    * determins weither a user exists
    */
   ngOnInit(): void {
-    this.userExists = !!this.user.name;
+    this.userExists = !!localStorage.getItem('username');
   }
 
   /**

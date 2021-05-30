@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoggedUserService } from '../logged-user.service';
 import { Post } from '../post';
 import { PostService } from '../post.service';
 
@@ -24,21 +23,16 @@ export class MainPageComponent implements OnInit {
 
   /**
    *
-   * @param loggedUser injected logged user service
    * @param postService injected post service
    */
-  constructor(
-    private loggedUser: LoggedUserService,
-    private postService: PostService
-  ) {}
+  constructor(private postService: PostService) {}
 
   /**
    * fetches the logged users name than fetches all posts
    */
   ngOnInit(): void {
-
-    if (this.loggedUser.name !== undefined) {
-      this.name = this.loggedUser.name;
+    if (localStorage.getItem('username') !== undefined) {
+      this.name = localStorage.getItem('name');
     }
 
     this.postService.getAll().subscribe((res) => (this.feed = res));

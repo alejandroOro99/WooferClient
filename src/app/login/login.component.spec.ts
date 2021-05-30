@@ -8,8 +8,9 @@ import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { LoggedUserService } from '../logged-user.service';
+import { Observable, throwError } from 'rxjs';
 import { LoginService } from '../login.service';
+import { User } from '../user';
 
 import { LoginComponent } from './login.component';
 
@@ -18,17 +19,10 @@ describe('LoginComponent', () => {
   let fixture: ComponentFixture<LoginComponent>;
 
   let loginService: LoginService;
-  let loggedUserService: LoggedUserService;
   let router: Router;
 
   class MockLoginService {
     login(): any {}
-  }
-
-  class MockLoggedUserService {
-    username: string;
-    name: string;
-    id: number;
   }
 
   function pressTheButton(): void {
@@ -37,15 +31,11 @@ describe('LoginComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [
-        { provide: LoginService, useClass: MockLoginService },
-        { provide: LoggedUserService, useClass: MockLoggedUserService },
-      ],
+      providers: [{ provide: LoginService, useClass: MockLoginService }],
       declarations: [LoginComponent],
       imports: [RouterTestingModule.withRoutes([]), FormsModule],
     }).compileComponents();
     loginService = TestBed.inject(LoginService);
-    loggedUserService = TestBed.inject(LoggedUserService);
     router = TestBed.inject(Router);
   });
 
@@ -64,7 +54,19 @@ describe('LoginComponent', () => {
     waitForAsync(() => {
       component.username = 'The Maharajah of Mash';
       component.password = 'The Rajah of Rap';
-      spyOn(loginService, 'login').and.returnValue(true);
+      spyOn(loginService, 'login').and.returnValue(
+        new Observable<User>((o) => {
+          o.next({
+            id: 1,
+            username: 'username',
+            password: 'password',
+            name: 'name',
+            email: 'email',
+            dob: 'dob',
+            phone: 'phone',
+          });
+        })
+      );
       spyOn(router, 'navigate');
       pressTheButton();
       fixture.whenStable().then(() => {
@@ -80,7 +82,12 @@ describe('LoginComponent', () => {
     waitForAsync(() => {
       component.username = 'The Behemoth of Bust';
       component.password = 'Blunderbuss';
-      spyOn(loginService, 'login').and.returnValue(false);
+      spyOn(loginService, 'login').and.returnValue(
+        new Observable<User>((o) => {
+          throwError(new Error('test error'));
+          o.next(null);
+        })
+      );
       spyOn(router, 'navigate');
       pressTheButton();
       fixture.whenStable().then(() => {
