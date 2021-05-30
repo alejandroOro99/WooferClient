@@ -3,7 +3,7 @@
     <div class="d-flex flex-column">
       <app-profile></app-profile>
       <app-woof></app-woof>
-      <app-poster></app-poster>
+      <app-post *ngFor="let post of feed" [post]="post"></app-post>
     </div>
   </div>
 </div>

@@ -22,7 +22,6 @@ export class PosterComponent implements OnInit {
 
   /**
    * @param thingThatPosts injected post service
-   * @param user injected user service
    */
   constructor(private thingThatPosts: PostService) {}
 

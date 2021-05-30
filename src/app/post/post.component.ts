@@ -30,6 +30,7 @@ export class PostComponent implements OnInit {
    * idk
    */
   commentBody: string;
+  isLiked: boolean;
   public currentPostId: number;
 
   /**
@@ -46,6 +47,8 @@ export class PostComponent implements OnInit {
    */
   ngOnInit(): void {
     this.userId = Number(localStorage.getItem('id'));
+    const likes: number[] = JSON.parse(localStorage.getItem('likes'));
+    this.isLiked = !(likes.indexOf(this.post.id) === -1);
   }
 
   /**
@@ -58,7 +61,7 @@ export class PostComponent implements OnInit {
    * adds a comment to the database
    * @param body comment body
    * @param userId id of current user
-   * @param postId id of relevent post (why is this a parameter when you can grab it as a local storage item?)
+   * @param postId id of relevent post
    */
   private addComment(body: string, userId: number, postId: number): void {
     const newComment = new Comment(body, postId, userId);
@@ -70,7 +73,11 @@ export class PostComponent implements OnInit {
    */
   like(): void {
     this.service.like(this.post.id).subscribe((num) => {
-      if (num >= 0) {
+      if (num > 0) {
+        this.isLiked = true;
+        const likes: number[] = JSON.parse(localStorage.getItem('likes'));
+        likes.push(this.post.id);
+        localStorage.setItem('likes', JSON.stringify(likes));
         this.post.likes = num;
       }
     });

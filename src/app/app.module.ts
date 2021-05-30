@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from './signup/signup.component';
-import { FeedComponent } from './feed/feed.component';
 import { PostComponent } from './post/post.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -25,7 +24,6 @@ import { WoofComponent } from './woof/woof.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    FeedComponent,
     PostComponent,
     MainPageComponent,
     PosterComponent,

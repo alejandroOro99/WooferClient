@@ -1,4 +1,4 @@
-<div class="content">
+<!--<div class="content">
   <h4>{{ post.name }}</h4>
   &nbsp;
   <span class="username">@{{ post.username }}</span>
@@ -14,4 +14,37 @@
   <br />
   <button (click)="showComments = true">Show Comments</button>
   <button (click)="showComments = false">Close Comments</button>
+</div>-->
+<div class="d-flex flex-column w-600 p-t-12 p-x-16 m-b-16 border-grey">
+  <div>
+    <span class="bold">{{ post.name }} </span>
+    <span class="text-secondary">
+      <span> @{{ post.username }} </span>
+      <span> · </span>
+      <span>May 25</span>
+    </span>
+  </div>
+  <div class="p-b-12">
+    <div class="font-size-15">
+      {{ post.body }}
+    </div>
+    <div class="d-flex space-between m-t-12 text-secondary">
+      <div class="comment">
+        <i class="far fa-comment"></i>
+        <span class="p-x-12 f-13"> {{ post.comments }}</span>
+      </div>
+      <div class="retweet">
+        <i class="fas fa-retweet"></i>
+        <span class="p-x-12 f-13"> 2.9k</span>
+      </div>
+      <div class="like">
+        <i *ngIf="isLiked" class="fas fa-heart"></i>
+        <i *ngIf="!isLiked" class="far fa-heart" (click)="like()"></i>
+        <span class="p-x-12 f-13">{{ post.likes }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="p-y-12">
+    <a href="#">Show this thread</a>
+  </div>
 </div>
