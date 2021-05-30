@@ -67,8 +67,6 @@ export class PostComponent implements OnInit {
     this.commentService.addComment(newComment).subscribe((res) => {});
   }
 
-  //dhfgioahfgiudehuifahufgeuig
-
   /**
    * runs upon button press: likes a post
    */
