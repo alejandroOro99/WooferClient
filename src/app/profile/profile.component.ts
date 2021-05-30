@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FollowService } from '../follow.service';
+import { SignupService } from '../signup.service';
+import { User } from '../user';
 
 @Component({
   selector: 'app-profile',
@@ -7,14 +10,21 @@ import { FollowService } from '../follow.service';
   styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  constructor(private followService: FollowService) {}
+  user: User;
+
+  constructor(
+    private followService: FollowService,
+    private route: ActivatedRoute,
+    private signupService: SignupService
+  ) {}
 
   public followerCount: number;
-  public username: string;
-  public name: string;
+  // public username: string;
+  // public name: string;
   public timestamp: Date;
   public numberOfUsersFollowed: number;
   userId: number;
+  isLoggedUser: boolean;
   @Input() profileName: string;
   public months = [
     'January',
@@ -32,15 +42,19 @@ export class ProfileComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    if (localStorage.getItem('username') !== undefined) {
-      this.userId = Number(localStorage.getItem('id'));
-      this.username = localStorage.getItem('username');
-      this.name = localStorage.getItem('name');
-      this.timestamp = new Date(localStorage.getItem('timestamp'));
-    }
-    this.getAllFollowers(this.userId);
-    this.getFollowersByFollowerId(this.userId);
-    console.log(this.profileName);
+    this.signupService
+      .getUserByUsername(this.route.snapshot.paramMap.get('username'))
+      .subscribe((res) => {
+        console.log('user fetched from the database from profile: ' + res);
+        this.user = res;
+        console.log(this.user);
+        this.timestamp = new Date(this.user.timestamp);
+        this.getAllFollowers(this.user.id);
+        this.getFollowersByFollowerId(this.user.id);
+        this.isLoggedUser =
+          this.route.snapshot.paramMap.get('username') ===
+          JSON.parse(localStorage.getItem('user')).username;
+      });
   }
 
   // Gets the total number of followers currently logged in user has.
@@ -53,7 +67,6 @@ export class ProfileComponent implements OnInit {
   getFollowersByFollowerId(userId: number): void {
     this.followService.getFollowersByFollowerId(userId).subscribe((res) => {
       this.numberOfUsersFollowed = res.length;
-      console.log(res.length);
     });
   }
 }
