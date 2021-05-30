@@ -56,7 +56,6 @@ export class PostComponent implements OnInit {
   public commentBtn(): void {
     this.addComment(this.commentBody, this.userId, this.post.id);
   }
-
   /**
    * adds a comment to the database
    * @param body comment body
@@ -67,6 +66,8 @@ export class PostComponent implements OnInit {
     const newComment = new Comment(body, postId, userId);
     this.commentService.addComment(newComment).subscribe((res) => {});
   }
+
+  //dhfgioahfgiudehuifahufgeuig
 
   /**
    * runs upon button press: likes a post
