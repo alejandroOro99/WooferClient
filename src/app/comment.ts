@@ -18,12 +18,6 @@ export class Comment {
     this.user.id = userId;
   }
 
-  Id: number;
-  body: string;
-  timestamp: Date;
-  post: Post;
-  user: User;
-
   public setUser(userId: number): void {
     this.user = new User();
     this.user.id = userId;
@@ -31,5 +25,4 @@ export class Comment {
   public setPost(postId: number): void {
     this.post = new Post(postId);
   }
-
 }
