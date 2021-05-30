@@ -168,28 +168,58 @@ interface IUser {
   password: string;
 }
 
+/**
+ * defines the page in which a login will be recieved
+ */
 @Component({
   selector: &#x27;app-login&#x27;,
   templateUrl: &#x27;./login.component.html&#x27;,
   styleUrls: [&#x27;./login.component.css&#x27;],
 })
 export class LoginComponent implements OnInit {
+  /**
+   * the inputed users username
+   */
   username: string;
+  /**
+   * the inputed users password
+   */
   password: string;
 
+  /**
+   * weither their has been an error that needs to be given to the user
+   */
   errorState &#x3D; false;
+  /**
+   * message to display on error
+   */
   errorMessage &#x3D; &#x27;&#x27;;
 
+  /**
+   * weither the user has succesfully logged in
+   */
   loggedIn: boolean;
 
+  /**
+   *
+   * @param loginService injectable login service
+   * @param router injectable router
+   * @param loggedUser injectable logged user
+   */
   constructor(
     private loginService: LoginService,
     private router: Router,
     private loggedUser: LoggedUserService
   ) {}
 
+  /**
+   * @ignore
+   */
   ngOnInit(): void {}
 
+  /**
+   * runs upon button press: derermins weither the user can be submitted, than submits them
+   */
   submit(): void {
     if (!this.username) {
       this.errorState &#x3D; true;
@@ -198,7 +228,7 @@ export class LoginComponent implements OnInit {
       this.errorState &#x3D; true;
       this.errorMessage &#x3D; &#x27;Password is required&#x27;;
     } else {
-      let user: IUser &#x3D; {
+      const user: IUser &#x3D; {
         username: this.username,
         password: this.password,
       };

@@ -61,7 +61,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/login/login.component.ts</code>
+            <code>src/app/login.service.ts</code>
         </p>
 
 
@@ -158,10 +158,12 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
-import { Router } from &#x27;@angular/router&#x27;;
-import { LoggedUserService } from &#x27;../logged-user.service&#x27;;
-import { LoginService } from &#x27;../login.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { Injectable } from &#x27;@angular/core&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { catchError, map, tap } from &#x27;rxjs/operators&#x27;;
+import { LoggedUserService } from &#x27;./logged-user.service&#x27;;
+import { User } from &#x27;./user&#x27;;
 
 interface IUser {
   username: string;
@@ -169,85 +171,29 @@ interface IUser {
 }
 
 /**
- * defines the page in which a login will be recieved
+ * Provider for logging in a User
  */
-@Component({
-  selector: &#x27;app-login&#x27;,
-  templateUrl: &#x27;./login.component.html&#x27;,
-  styleUrls: [&#x27;./login.component.css&#x27;],
+@Injectable({
+  providedIn: &#x27;root&#x27;,
 })
-export class LoginComponent implements OnInit {
-  /**
-   * the inputed users username
-   */
-  username: string;
-  /**
-   * the inputed users password
-   */
-  password: string;
-
-  /**
-   * weither their has been an error that needs to be given to the user
-   */
-  errorState &#x3D; false;
-  /**
-   * message to display on error
-   */
-  errorMessage &#x3D; &#x27;&#x27;;
-
-  /**
-   * weither the user has succesfully logged in
-   */
-  loggedIn: boolean;
-
+export class LoginService {
+  private urlLogin: string;
   /**
    *
-   * @param loginService injectable login service
-   * @param router injectable router
-   * @param loggedUser injectable logged user
+   * @param loggedUser The Service that will save the logged in user&#x27;s info
    */
-  constructor(
-    private loginService: LoginService,
-    private router: Router,
-    private loggedUser: LoggedUserService
-  ) {}
+  constructor(private http: HttpClient, private loggedUser: LoggedUserService) {
+    this.urlLogin &#x3D; &#x27;http://localhost:9000/user/login&#x27;;
+  }
 
   /**
-   * @ignore
+   * Attempts to verify the user&#x27;s credentials and, if successful, log them in
+   * @param username The username that was entered to be checked by the backend
+   * @param password The password that was entered to be checked by the backend
+   * @returns The logged in users info
    */
-  ngOnInit(): void {}
-
-  /**
-   * runs upon button press: derermins weither the user can be submitted, than submits them
-   */
-  submit(): void {
-    if (!this.username) {
-      this.errorState &#x3D; true;
-      this.errorMessage &#x3D; &#x27;Username is required&#x27;;
-    } else if (!this.password) {
-      this.errorState &#x3D; true;
-      this.errorMessage &#x3D; &#x27;Password is required&#x27;;
-    } else {
-      const user: IUser &#x3D; {
-        username: this.username,
-        password: this.password,
-      };
-
-      this.loginService.login(user).subscribe(
-        (res) &#x3D;&gt; {
-          this.loggedUser.username &#x3D; res.username;
-          this.loggedUser.name &#x3D; res.name;
-          this.loggedUser.id &#x3D; res.id;
-
-          this.router.navigate([&#x27;mainPage&#x27;]);
-        },
-        (error) &#x3D;&gt; {
-          console.log(&#x60;Error recieved from interceptor: ${error}&#x60;);
-          this.errorMessage &#x3D; error;
-          this.errorState &#x3D; true;
-        }
-      );
-    }
+  public login(user: IUser): Observable&lt;User&gt; {
+    return this.http.post&lt;User&gt;(this.urlLogin, user);
   }
 }
 </code></pre>

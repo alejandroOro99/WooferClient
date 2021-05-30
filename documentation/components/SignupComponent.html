@@ -278,8 +278,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">src/app/signup/signup.component.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="75"
+                            class="link-to-prism">src/app/signup/signup.component.ts:75</a></div>
                 </td>
             </tr>
 
@@ -348,8 +348,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="80"
-                            class="link-to-prism">src/app/signup/signup.component.ts:80</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="82"
+                            class="link-to-prism">src/app/signup/signup.component.ts:82</a></div>
                 </td>
             </tr>
 
@@ -418,8 +418,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">src/app/signup/signup.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">src/app/signup/signup.component.ts:89</a></div>
                 </td>
             </tr>
 
@@ -457,8 +457,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">src/app/signup/signup.component.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/signup/signup.component.ts:57</a></div>
                 </td>
             </tr>
 
@@ -773,7 +773,9 @@ export class SignupComponent implements OnInit {
   /**
    * @ignore
    */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user &#x3D; new User();
+  }
 
   validateCredentials(): void {
     if (
@@ -942,7 +944,7 @@ export class SignupComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="mx-auto">  <div class="card">    <div class="card-header">Enter user info</div>    <div class="card-body" (keydown.enter)="submit()">      <div *ngIf="errorState" class="error">        {{ errorMessage }}      </div>      <div class="row">        <div class="column">          <label>            Username:<br />            <input type="text" [(ngModel)]="user.username" required />          </label>          <br /><br />          <label>            Password:<br />            <input type="password" [(ngModel)]="password1" required />          </label>          <br /><br />          <label>            Confirm Password:<br />            <input type="password" [(ngModel)]="password2" required />          </label>          <br /><br />          <label>            Name:<br />            <input type="text" [(ngModel)]="user.name" />          </label>        </div>        <div class="column">          <label>            Email:<br />            <input type="email" [(ngModel)]="user.email" />          </label>          <br /><br />          <label>            Date of birth:<br />            <input type="date" [(ngModel)]="user.dob" />          </label>          <br /><br />          <label>            Phone number:<br />            <input type="tel" [(ngModel)]="user.phone" />          </label>          <br /><br />          <p>            <button (click)="submit()" class="btn btn-primary">Signup</button>          </p>        </div>      </div>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'PostComponent', 'selector': 'app-post'},{'name': 'PosterComponent', 'selector': 'app-poster'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommentComponent', 'selector': 'app-comment'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'PostComponent', 'selector': 'app-post'},{'name': 'PosterComponent', 'selector': 'app-poster'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SignupComponent'};
 </script>

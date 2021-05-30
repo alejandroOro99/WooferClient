@@ -50,7 +50,9 @@ export class SignupComponent implements OnInit {
   /**
    * @ignore
    */
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = new User();
+  }
 
   validateCredentials(): void {
     if (

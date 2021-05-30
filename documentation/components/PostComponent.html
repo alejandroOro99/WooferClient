@@ -203,7 +203,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(commentService: CommentService, loggedUser: <a href="../injectables/LoggedUserService.html">LoggedUserService</a>, service: <a href="../injectables/PostService.html">PostService</a>)</code>
+<code>constructor(commentService: <a href="../injectables/CommentService.html">CommentService</a>, loggedUser: <a href="../injectables/LoggedUserService.html">LoggedUserService</a>, service: <a href="../injectables/PostService.html">PostService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -230,7 +230,7 @@
                                                         <td>commentService</td>
                                                   
                                                         <td>
-                                                                    <code>CommentService</code>
+                                                                        <code><a href="../injectables/CommentService.html" target="_self" >CommentService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -817,7 +817,7 @@ export class PostComponent implements OnInit {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="content">  <h4>{{ post.name }}</h4>  &nbsp;  <span class="username">@{{ post.username }}</span>  <div>{{ post.body }}</div>  <span class="footnote"> Likes: {{ post.likes }} </span>  <div *ngIf="showComments">    ------------------------------------------    <app-comment [postId]="post.id"></app-comment>  </div>  <input name="commentInput" type="text" [(ngModel)]="commentBody" />  <button (click)="commentBtn()">Comment</button>  <br />  <br />  <button (click)="showComments = true">Show Comments</button>  <button (click)="showComments = false">Close Comments</button></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'PostComponent', 'selector': 'app-post'},{'name': 'PosterComponent', 'selector': 'app-poster'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CommentComponent', 'selector': 'app-comment'},{'name': 'FeedComponent', 'selector': 'app-feed'},{'name': 'FirstPageComponent', 'selector': 'app-first-page'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MainPageComponent', 'selector': 'app-main-page'},{'name': 'PostComponent', 'selector': 'app-post'},{'name': 'PosterComponent', 'selector': 'app-poster'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PostComponent'};
 </script>

@@ -11,5 +11,7 @@ export class LoggedUserService {
   name: string;
   id: number;
 
+  public logout() {}
+
   constructor() {}
 }
