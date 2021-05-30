@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   public username: string;
   userId: number;
   ngOnInit(): void {
-    if (this.loggedUser != undefined) {
+    if (this.loggedUser !== undefined) {
       this.userId = this.loggedUser.id;
       this.username = this.loggedUser.username;
     }

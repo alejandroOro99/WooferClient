@@ -1,38 +1,3 @@
-<!-- <div class="mx-auto">
-  <div class="card">
-    <div class="card-header">Login to Woofer</div>
-    <div class="card-body" (keydown.enter)="submit()">
-      <div *ngIf="errorState" class="error">
-        {{ errorMessage }}
-      </div>
-      <label>
-        Username:<br />
-        <input
-          class="form-control"
-          type="text"
-          [(ngModel)]="this.username"
-          required
-        />
-      </label>
-      <br /><br />
-      <label>
-        Password:<br />
-        <input
-          class="form-control"
-          type="password"
-          [(ngModel)]="this.password"
-          required
-        />
-      </label>
-      <br /><br />
-      <p>
-        <button (click)="submit()" class="btn btn-primary">Login</button>
-      </p>
-      <a routerLink="/signup">signup</a>
-    </div>
-  </div>
-</div> -->
-
 <div class="min-height-884">
   <div class="max-width-400 mt-4 w-100 p-x-16 mx-auto primary-flex">
     <div class="mx-3">
@@ -47,18 +12,18 @@
     <div>
       <form>
         <div class="primary-flex">
-          <div class="primary-flex p-y-12 p-x-16 m-t-8 input-border mx-3">
+          <div class="p-y-12 m-t-8 mx-3">
             <input
-              class="no-border"
+              class="input-border p-16 w-100"
               type="text"
               [(ngModel)]="username"
               placeholder="Username"
               name="username"
             />
           </div>
-          <div class="primary-flex p-y-12 p-x-16 m-t-8 input-border mx-3">
+          <div class="p-y-12 m-t-8 mx-3">
             <input
-              class="no-border"
+              class="input-border p-16 w-100"
               type="password"
               [(ngModel)]="password"
               placeholder="Password"

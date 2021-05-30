@@ -32,12 +32,14 @@ export class PostComponent implements OnInit {
     this.addComment(this.commentBody, this.userId, this.post.id);
   }
   private addComment(body: string, userId: number, postId: number) {
-    let newComment = new Comment(body, postId, userId);
+    const newComment = new Comment(body, postId, userId);
     this.commentService.addComment(newComment).subscribe((res) => {});
   }
   like(): void {
     this.service.like(this.post.id).subscribe((num) => {
-      if (num >= 0) this.post.likes = num;
+      if (num >= 0) {
+        this.post.likes = num;
+      }
     });
   }
 }

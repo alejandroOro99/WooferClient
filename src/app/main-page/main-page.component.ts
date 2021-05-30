@@ -20,7 +20,7 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.loggedUser.name);
-    if (this.loggedUser.name != undefined) {
+    if (this.loggedUser.name !== undefined) {
       this.name = this.loggedUser.name;
     }
 

@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       this.errorState = true;
       this.errorMessage = 'Password is required';
     } else {
-      let user: IUser = {
+      const user: IUser = {
         username: this.username,
         password: this.password,
       };
