@@ -1,7 +1,4 @@
 export class User {
-  constructor(id: number) {
-    this.id = id;
-  }
   id: number;
   username: string;
   password: string;

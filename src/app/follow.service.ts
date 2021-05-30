@@ -22,7 +22,7 @@ export class FollowService {
   getFollowersByFollowerId(userId: number): Observable<Follow[]> {
     return this.http.get<Follow[]>(this.urlGetFollowersByFollowerId + userId);
   }
-  unfollow(follower: Follow) {
+  unfollow(follower: Follow): void {
     this.http.delete(this.urlFollow + follower);
   }
 }

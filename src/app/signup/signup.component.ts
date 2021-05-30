@@ -20,7 +20,9 @@ export class SignupComponent implements OnInit {
 
   constructor(private signupService: SignupService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.user = new User();
+  }
 
   validateCredentials(): void {
     if (

@@ -4,6 +4,7 @@ import {
   HttpHandler,
   HttpInterceptor,
   HttpRequest,
+  HttpResponse,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
@@ -15,7 +16,7 @@ import { catchError } from 'rxjs/operators';
 export class AppInterceptorService implements HttpInterceptor {
   constructor() {}
 
-  handleError(error: HttpErrorResponse) {
+  handleError(error: HttpErrorResponse): Observable<never> {
     console.log('error occurred');
     return throwError(error.error);
   }

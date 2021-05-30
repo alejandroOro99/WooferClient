@@ -17,14 +17,14 @@ export class ProfileComponent implements OnInit {
   public username: string;
   userId: number;
   ngOnInit(): void {
-    if (this.loggedUser != undefined) {
+    if (this.loggedUser !== undefined) {
       this.userId = this.loggedUser.id;
       this.username = this.loggedUser.username;
     }
     this.getAllFollowers(this.userId);
   }
 
-  getAllFollowers(userId: number) {
+  getAllFollowers(userId: number): void {
     this.followService.getAllFollowers(userId).subscribe((res) => {
       this.followerCount = res;
     });
