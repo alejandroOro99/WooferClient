@@ -70,16 +70,17 @@ export class LoginComponent implements OnInit {
 
       this.loginService.login(user).subscribe(
         (res) => {
-          localStorage.setItem('username', res.username);
-          localStorage.setItem('name', res.name);
-          localStorage.setItem('id', res.id.toString());
+          // localStorage.setItem('username', res.username);
+          // localStorage.setItem('name', res.name);
+          // localStorage.setItem('id', res.id.toString());
+          localStorage.setItem('user', JSON.stringify(res));
 
-          this.loginService.getLikes(res.id).subscribe((x) => {
-            localStorage.setItem('likes', JSON.stringify(x));
-          });
+          // this.loginService.getLikes(res.id).subscribe((x) => {
+          //   localStorage.setItem('likes', JSON.stringify(x));
+          // });
 
-          localStorage.setItem('timestamp', res.timestamp.toString());
-          this.router.navigate(['mainPage']);
+          //localStorage.setItem('timestamp', res.timestamp.toString());
+          this.router.navigate([`${res.username}`]);
         },
         (error) => {
           console.log(`Error recieved from interceptor: ${error}`);

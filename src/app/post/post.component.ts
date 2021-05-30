@@ -4,6 +4,7 @@ import { Post } from '../post';
 
 import { Comment } from '../comment';
 import { PostService } from '../post.service';
+import { ActivatedRoute } from '@angular/router';
 
 /**
  * displays a single post
@@ -18,10 +19,11 @@ export class PostComponent implements OnInit {
    * the post to display
    */
   @Input() post: Post;
+  username: string;
   /**
    * id of the logged user
    */
-  userId: number;
+  //userId: number;
   /**
    * weither the user has elected to view this posts comments
    */
@@ -39,23 +41,26 @@ export class PostComponent implements OnInit {
    */
   constructor(
     private commentService: CommentService,
-    private service: PostService
-  ) {}
+    private service: PostService,
+    private route: ActivatedRoute
+  ) {
+    this.username = this.route.snapshot.paramMap.get('username');
+  }
 
   /**
    * fetches the logged users id
    */
   ngOnInit(): void {
-    this.userId = Number(localStorage.getItem('id'));
-    const likes: number[] = JSON.parse(localStorage.getItem('likes'));
-    this.isLiked = !(likes.indexOf(this.post.id) === -1);
+    //this.userId = Number(localStorage.getItem('id'));
+    // const likes: number[] = JSON.parse(localStorage.getItem('likes'));
+    // this.isLiked = !(likes.indexOf(this.post.id) === -1);
   }
 
   /**
    * runs upon a button press: creates a comment
    */
   public commentBtn(): void {
-    this.addComment(this.commentBody, this.userId, this.post.id);
+    //this.addComment(this.commentBody, this.userId, this.post.id);
   }
   /**
    * adds a comment to the database

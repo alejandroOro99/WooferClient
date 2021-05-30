@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SignupService } from '../signup.service';
 import { User } from '../user';
 
@@ -45,7 +46,7 @@ export class SignupComponent implements OnInit {
   /**
    * @param signupService injected signup service
    */
-  constructor(private signupService: SignupService) {}
+  constructor(private signupService: SignupService, private router: Router) {}
 
   /**
    * @ignore
@@ -60,7 +61,7 @@ export class SignupComponent implements OnInit {
       this.userUsernameValidation == null
     ) {
       this.signupService.addUser(this.user).subscribe((res) => {});
-      alert('user created');
+      this.router.navigate(['login']);
     } else {
       if (this.userEmailValidation == null) {
         console.log(this.userEmailValidation);

@@ -6,6 +6,7 @@ import {
   SimpleChange,
   SimpleChanges,
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Comment } from '../comment';
 import { CommentService } from '../comment.service';
 import { User } from '../user';
@@ -17,9 +18,14 @@ import { User } from '../user';
 })
 export class CommentComponent implements OnInit {
   comments: Comment[];
-  @Input() postId: number;
+  postId: number;
   @Input() body: string;
-  constructor(private commentService: CommentService) {}
+  constructor(
+    private commentService: CommentService,
+    private route: ActivatedRoute
+  ) {
+    this.postId = +this.route.snapshot.paramMap.get('postId');
+  }
 
   ngOnInit(): void {
     console.log(this.postId);
