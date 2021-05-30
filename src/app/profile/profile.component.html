@@ -5,23 +5,39 @@
 <div class="d-flex flex-column w-600 p-t-12 p-x-16 border-grey">
   <div class="d-flex space-between m-t-4 m-b-12">
     <div>
-      <div class="f-20 bold">Name</div>
-      <div class="font-size-15 text-secondary">@Name</div>
+      <div class="f-20 bold">{{ name }}</div>
+      <div class="font-size-15 text-secondary">@{{ username }}</div>
     </div>
     <div>
-      <button class="btn btn-primary-inverted round m-b-12">Follow</button>
+      <button
+        class="btn btn-primary-inverted round m-b-12"
+        *ngIf="profileName != name"
+      >
+        Follow
+      </button>
+      <button
+        class="btn btn-primary-inverted round m-b-12"
+        *ngIf="profileName == name"
+      >
+        Logout
+      </button>
     </div>
   </div>
   <div class="m-b-12">Description</div>
-  <div class="m-b-12 text-secondary">Joined March 2007</div>
+
+  <div class="m-b-12 text-secondary">
+    <i class="far fa-calendar"></i>
+    Joined: {{ months[timestamp.getMonth()] }} {{ timestamp.getDate() }}
+  </div>
   <div class="d-flex">
     <div class="m-r-20">
-      <span class="bold">591.6k </span>
+      <span class="bold">{{ numberOfUsersFollowed }} </span>
       <span class="text-secondary">Following</span>
     </div>
     <div>
-      <span class="bold">129.7M </span>
-      <span class="text-secondary">Followers</span>
+      <span class="bold">{{ followerCount }}</span>
+      <span class="text-secondary" *ngIf="followerCount <= 1"> Follower</span>
+      <span class="text-secondary" *ngIf="followerCount > 1"> Followers</span>
     </div>
   </div>
 </div>

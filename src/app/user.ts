@@ -12,4 +12,5 @@ export class User {
   email: string;
   dob: string;
   phone: string;
+  timestamp: Date;
 }

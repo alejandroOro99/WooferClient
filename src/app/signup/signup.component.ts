@@ -63,10 +63,13 @@ export class SignupComponent implements OnInit {
       alert('user created');
     } else {
       if (this.userEmailValidation == null) {
+        console.log(this.userEmailValidation);
         alert('Username already in use');
       } else if (this.userUsernameValidation == null) {
+        console.log(this.userEmailValidation);
         alert('Email already in use');
       } else {
+        console.log(this.userEmailValidation);
         alert('Username and email already in use');
       }
     }
@@ -97,9 +100,6 @@ export class SignupComponent implements OnInit {
     } else if (!this.password1) {
       this.errorState = true;
       this.errorMessage = 'Password is required';
-    } else if (!this.user.dob) {
-      this.errorState = true;
-      this.errorMessage = 'Date of birth is required';
     } else {
       this.user.password = this.password1;
       // Method flow: getUserByUsername->getUserByEmail->validateCredentials
