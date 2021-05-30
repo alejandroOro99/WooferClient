@@ -12,7 +12,12 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: var(--main-color);
+}
+
 a:hover {
+  color: hsl(25, 100%, 55%);
   text-decoration: none;
 }
 
@@ -107,6 +112,11 @@ a:hover {
   padding-right: 4px;
 }
 
+.p-x-12 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .p-x-16 {
   padding-left: 16px;
   padding-right: 16px;
@@ -142,6 +152,10 @@ a:hover {
   margin-top: 8px;
 }
 
+.m-t-12 {
+  margin-top: 0.75rem;
+}
+
 .m-t-16 {
   margin-top: 16px;
 }
@@ -156,6 +170,10 @@ a:hover {
 
 .m-t-64 {
   margin-top: 64px;
+}
+
+.m-r-20 {
+  margin-right: 1.25rem;
 }
 
 .m-x-16 {
@@ -212,6 +230,10 @@ a:hover {
 
 .line-height-84 {
   line-height: calc(84px);
+}
+
+.f-13 {
+  font-size: 13px;
 }
 
 .font-size-15 {
@@ -391,4 +413,20 @@ a:hover {
 .btn-primary-inverted:hover {
   color: var(--main-color);
   background-color: var(--light-main-color);
+}
+
+.border-grey {
+  border: 1px solid rgb(235, 238, 240);
+}
+
+.comment:hover {
+  color: var(--main-color);
+}
+
+.retweet:hover {
+  color: hsl(95, 100%, 55%);
+}
+
+.like:hover {
+  color: hsl(5, 100%, 55%);
 }
