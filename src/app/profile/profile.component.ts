@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
       this.userId = Number(localStorage.getItem('id'));
       this.username = localStorage.getItem('username');
     }
-    this.getAllFollowers(this.userId);
+    // this.getAllFollowers(this.userId);
   }
 
   getAllFollowers(userId: number): void {
