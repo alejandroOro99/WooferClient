@@ -2,7 +2,7 @@
  * holds user data
  */
 export class User {
-  constructor(id: number) {
+  constructor(id?: number) {
     this.id = id;
   }
   id: number;

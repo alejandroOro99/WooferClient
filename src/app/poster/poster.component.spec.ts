@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { LoggedUserService } from '../logged-user.service';
 import { PostService } from '../post.service';
 
 import { PosterComponent } from './poster.component';
@@ -17,19 +16,10 @@ describe('PosterComponent', () => {
     post(): any {}
   }
 
-  class MockLoggedUserService {
-    username: string;
-    name: string;
-    id: number;
-  }
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
-      providers: [
-        { provide: PostService, useClass: MockPostService },
-        { provide: LoggedUserService, useClass: MockLoggedUserService },
-      ],
+      providers: [{ provide: PostService, useClass: MockPostService }],
       declarations: [PosterComponent],
     }).compileComponents();
     postService = TestBed.inject(PostService);

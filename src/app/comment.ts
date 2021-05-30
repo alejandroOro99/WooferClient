@@ -14,13 +14,14 @@ export class Comment {
   constructor(body: string, postId: number, userId: number) {
     this.body = body;
     this.post = new Post(postId);
-    this.user = new User(userId);
+    this.user = new User();
+    this.user.id = userId;
   }
 
   public setUser(userId: number): void {
-    this.user = new User(userId);
+    this.user = new User();
+    this.user.id = userId;
   }
-
   public setPost(postId: number): void {
     this.post = new Post(postId);
   }

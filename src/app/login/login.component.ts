@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoggedUserService } from '../logged-user.service';
 import { LoginService } from '../login.service';
 
 interface IUser {
@@ -44,13 +43,8 @@ export class LoginComponent implements OnInit {
    *
    * @param loginService injectable login service
    * @param router injectable router
-   * @param loggedUser injectable logged user
    */
-  constructor(
-    private loginService: LoginService,
-    private router: Router,
-    private loggedUser: LoggedUserService
-  ) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   /**
    * @ignore
@@ -76,9 +70,9 @@ export class LoginComponent implements OnInit {
 
       this.loginService.login(user).subscribe(
         (res) => {
-          this.loggedUser.username = res.username;
-          this.loggedUser.name = res.name;
-          this.loggedUser.id = res.id;
+          localStorage.setItem('username', res.username);
+          localStorage.setItem('name', res.name);
+          localStorage.setItem('id', res.id.toString());
 
           this.router.navigate(['mainPage']);
         },
