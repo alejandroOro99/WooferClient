@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LoggedUserService } from './logged-user.service';
 import { Post } from './post';
 
 /**
@@ -17,9 +16,8 @@ export class PostService {
   private url: string;
   /**
    * @param http injected http client
-   * @param loggedUser injected logged user
    */
-  constructor(private http: HttpClient, private loggedUser: LoggedUserService) {
+  constructor(private http: HttpClient) {
     this.url = 'http://localhost:9000/post';
   }
 
@@ -37,10 +35,10 @@ export class PostService {
    * @returns observable that returns nothing upon completion
    */
   post(body: string): Observable<void> {
-    if (this.loggedUser.name) {
+    if (localStorage.getItem('name')) {
       return this.http.post<void>(this.url, {
         body: `${body}`,
-        userId: this.loggedUser.id,
+        userId: Number(localStorage.getItem('id')),
       });
     } else {
       alert('there is no logged user');
@@ -55,7 +53,7 @@ export class PostService {
    */
   like(postId: number): Observable<number> {
     return this.http.post<number>(
-      `http://localhost:9000/like/${this.loggedUser.id}/${postId}`,
+      `http://localhost:9000/like/${localStorage.getItem('id')}/${postId}`,
       null
     );
   }

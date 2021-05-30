@@ -1,8 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
-import { LoggedUserService } from './logged-user.service';
+import { Observable } from 'rxjs';
 import { User } from './user';
 
 interface IUser {
@@ -19,10 +17,9 @@ interface IUser {
 export class LoginService {
   private urlLogin: string;
   /**
-   *
-   * @param loggedUser The Service that will save the logged in user's info
+   * instantiates the stored url
    */
-  constructor(private http: HttpClient, private loggedUser: LoggedUserService) {
+  constructor(private http: HttpClient) {
     this.urlLogin = 'http://localhost:9000/user/login';
   }
 

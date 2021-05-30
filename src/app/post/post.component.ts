@@ -3,7 +3,6 @@ import { CommentService } from '../comment.service';
 import { Post } from '../post';
 
 import { Comment } from '../comment';
-import { LoggedUserService } from '../logged-user.service';
 import { PostService } from '../post.service';
 
 /**
@@ -34,12 +33,10 @@ export class PostComponent implements OnInit {
 
   /**
    * @param commentService injected comment service
-   * @param loggedUser injected logged user service
    * @param service injected post service
    */
   constructor(
     private commentService: CommentService,
-    private loggedUser: LoggedUserService,
     private service: PostService
   ) {}
 
@@ -47,7 +44,7 @@ export class PostComponent implements OnInit {
    * fetches the logged users id
    */
   ngOnInit(): void {
-    this.userId = this.loggedUser.id;
+    this.userId = Number(localStorage.getItem('id'));
   }
 
   /**
