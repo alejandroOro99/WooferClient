@@ -24,7 +24,7 @@
         <span class="p-x-12 f-13"> 2.9k</span>
       </div>
       <div class="like">
-        <i *ngIf="isLiked" class="fas fa-heart"></i>
+        <i *ngIf="isLiked" class="fas fa-heart" (click)="unLike()"></i>
         <i *ngIf="!isLiked" class="far fa-heart" (click)="like()"></i>
         <span class="p-x-12 f-13">{{ post.likes }}</span>
       </div>

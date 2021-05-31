@@ -33,7 +33,7 @@ export class PostComponent implements OnInit {
    * idk
    */
   commentBody: string;
-  isLiked: boolean;
+  isLiked: boolean = false;
   public currentPostId: number;
 
   /**
@@ -53,8 +53,12 @@ export class PostComponent implements OnInit {
    */
   ngOnInit(): void {
     // this.userId = Number(localStorage.getItem('id'));
+    this.amILiked();
+  }
+
+  private amILiked() {
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
-    //this.isLiked = !(likes.indexOf(this.post.id) === -1);
+    if (likes) this.isLiked = !(likes.indexOf(this.post.id) === -1);
   }
 
   /**
@@ -80,13 +84,20 @@ export class PostComponent implements OnInit {
    */
   like(): void {
     this.service.like(this.post.id).subscribe((num) => {
-      if (num > 0) {
-        this.isLiked = true;
-        const likes: number[] = JSON.parse(localStorage.getItem('likes'));
-        likes.push(this.post.id);
-        localStorage.setItem('likes', JSON.stringify(likes));
+      if (num > 0)
+        this.service.refreshLikes().subscribe(() => {
+          this.post.likes = num;
+          this.amILiked();
+        });
+    });
+  }
+
+  unLike(): void {
+    this.service.unLike(this.post.id).subscribe((num) => {
+      this.service.refreshLikes().subscribe(() => {
         this.post.likes = num;
-      }
+        this.amILiked();
+      });
     });
   }
 }
