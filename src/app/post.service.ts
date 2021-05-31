@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Post } from './post';
 import { User } from './user';
 
@@ -35,7 +36,20 @@ export class PostService {
    * @returns observable that retrieves a list of posts upon completion
    */
   getByUsername(username: string): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.url}s/user/${username}`);
+    return this.http.get<Post[]>(`${this.url}s/user/${username}`).pipe(
+      tap((results) => {
+        results.reverse();
+      })
+    );
+  }
+
+  /**
+   * retrieves a post by the post id
+   * @param postId the id of the post
+   * @returns the post with the matching id
+   */
+  getById(postId: number): Observable<Post> {
+    return this.http.get<Post>(`${this.url}/${postId}`);
   }
 
   /**

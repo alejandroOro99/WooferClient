@@ -28,9 +28,11 @@ export class WoofComponent implements OnInit {
    * posts the post
    */
   submit(): void {
-    this.thingThatPosts.post(this.body).subscribe((p) => {
-      this.postMade.emit(p);
-    });
-    this.body = '';
+    if (this.body) {
+      this.thingThatPosts.post(this.body).subscribe((p) => {
+        this.body = '';
+        this.postMade.emit();
+      });
+    }
   }
 }
