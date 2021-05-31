@@ -2,15 +2,15 @@
   <div class="d-flex justify-content-center w-100">
     <div class="d-flex flex-column">
       <app-profile [loggedUserId]="this.user.id"></app-profile>
-      <app-woof *ngIf="isLoggedUser" (postMade)="addPost($event)"></app-woof>
+      <app-woof *ngIf="isLoggedUser" (postMade)="getPosts()"></app-woof>
       <app-post
-        *ngFor="let post of posts$ | async" 
+        *ngFor="let post of posts$ | async"
         [post]="post"
         [isLoggedUser]="isLoggedUser"
         [userId]="this.user.id"
+        (postDeleted)="getPosts()"
       ></app-post>
-      <app-woof *ngIf="isLoggedUser" (postMade)="addPost()"></app-woof>
-
+      <app-woof *ngIf="isLoggedUser" (postMade)="getPosts()"></app-woof>
     </div>
   </div>
 </div>

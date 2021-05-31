@@ -4,7 +4,9 @@
     <span class="text-secondary">
       <span> @{{ post.username }} </span>
       <span> · </span>
-      <span>May 25</span>
+      <span *ngIf="timestamp"
+        >{{ months[timestamp.getMonth()] }} {{ timestamp.getDate() }}</span
+      >
     </span>
   </div>
   <div class="p-b-12">
@@ -28,6 +30,10 @@
         <i *ngIf="!isLiked" class="far fa-heart" (click)="like()"></i>
         <span class="p-x-12 f-13">{{ post.likes }}</span>
       </div>
+    </div>
+    <br />
+    <div *ngIf="personalPost" (click)="remPost()">
+      click here to delete the post
     </div>
   </div>
   <div class="p-y-12">

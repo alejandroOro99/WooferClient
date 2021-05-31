@@ -1,4 +1,4 @@
-import { HttpClient, JsonpClientBackend } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -68,6 +68,10 @@ export class PostService {
       alert('there is no logged user');
       return new Observable<Post>((o) => o.next(null));
     }
+  }
+
+  remPost(id: number): Observable<void> {
+    return this.http.delete<void>(this.url + '/' + id);
   }
 
   /**

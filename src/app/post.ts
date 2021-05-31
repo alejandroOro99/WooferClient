@@ -12,4 +12,5 @@ export class Post {
   comments: number;
   userId: number;
   id: number;
+  timestamp: string;
 }
