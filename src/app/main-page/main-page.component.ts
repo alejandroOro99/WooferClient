@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Post } from '../post';
 import { PostService } from '../post.service';
-import { SignupService } from '../signup.service';
 import { User } from '../user';
 
 /**
@@ -61,9 +60,5 @@ export class MainPageComponent implements OnInit {
     this.posts$ = this.postService.getByUsername(
       this.route.snapshot.paramMap.get('username')
     );
-  }
-
-  addPost(post: Post): void {
-    this.getPosts();
   }
 }
