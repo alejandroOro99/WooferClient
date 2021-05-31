@@ -1,21 +1,4 @@
-<!--<div class="content">
-  <h4>{{ post.name }}</h4>
-  &nbsp;
-  <span class="username">@{{ post.username }}</span>
-  <div>{{ post.body }}</div>
-  <span class="footnote"> Likes: {{ post.likes }} </span>
-  <div *ngIf="showComments">
-    ------------------------------------------
-    <app-comment [postId]="post.id"></app-comment>
-  </div>
-  <input name="commentInput" type="text" [(ngModel)]="commentBody" />
-  <button (click)="commentBtn()">Comment</button>
-  <br />
-  <br />
-  <button (click)="showComments = true">Show Comments</button>
-  <button (click)="showComments = false">Close Comments</button>
-</div>-->
-<div class="d-flex flex-column w-600 p-t-12 p-x-16 m-b-16 border-grey">
+<div class="d-flex flex-column w-600 p-t-12 p-x-16 border-grey">
   <div>
     <span class="bold">{{ post.name }} </span>
     <span class="text-secondary">

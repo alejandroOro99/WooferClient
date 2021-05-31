@@ -54,7 +54,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     // this.userId = Number(localStorage.getItem('id'));
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
-    this.isLiked = !(likes.indexOf(this.post.id) === -1);
+    //this.isLiked = !(likes.indexOf(this.post.id) === -1);
   }
 
   /**

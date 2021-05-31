@@ -7,8 +7,11 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Comment } from '../comment';
 import { CommentService } from '../comment.service';
+import { Post } from '../post';
+import { PostService } from '../post.service';
 import { User } from '../user';
 
 @Component({
@@ -17,25 +20,27 @@ import { User } from '../user';
   styleUrls: ['./comment.component.css'],
 })
 export class CommentComponent implements OnInit {
-  comments: Comment[];
+  comments$: Observable<Comment[]>;
+  post$: Observable<Post>;
   postId: number;
   @Input() body: string;
   constructor(
+    private postService: PostService,
     private commentService: CommentService,
     private route: ActivatedRoute
-  ) {
-    this.postId = +this.route.snapshot.paramMap.get('postId');
-  }
+  ) {}
 
   ngOnInit(): void {
-    console.log(this.postId);
-    this.getCommentsByPost(this.postId);
+    this.postId = +this.route.snapshot.paramMap.get('postId');
+    this.post$ = this.getPost(this.postId);
+    this.comments$ = this.getCommentsByPost(this.postId);
   }
 
-  private getCommentsByPost(postId: number): void {
-    this.commentService.getCommentsByPost(postId).subscribe((res) => {
-      this.comments = res;
-      console.log(this.comments);
-    });
+  private getPost(postId: number): Observable<Post> {
+    return this.postService.getById(postId);
+  }
+
+  private getCommentsByPost(postId: number): Observable<Comment[]> {
+    return this.commentService.getCommentsByPost(postId);
   }
 }

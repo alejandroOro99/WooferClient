@@ -50,9 +50,7 @@ export class ProfileComponent implements OnInit {
     this.signupService
       .getUserByUsername(this.route.snapshot.paramMap.get('username'))
       .subscribe((res) => {
-        console.log('user fetched from the database from profile: ' + res);
         this.user = res;
-        console.log(this.user);
         this.timestamp = new Date(this.user.timestamp);
         this.getAllFollowers(false);
         this.getFollowersByFollowerId(this.user.id);
