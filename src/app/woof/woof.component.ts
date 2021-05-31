@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Post } from '../post';
+import { PostService } from '../post.service';
 
 @Component({
   selector: 'app-woof',
@@ -6,7 +8,31 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./woof.component.css'],
 })
 export class WoofComponent implements OnInit {
-  constructor() {}
+  @Output() postMade = new EventEmitter<Post>();
+  /**
+   * body of the post
+   */
+  body: string;
 
+  /**
+   * @param thingThatPosts injected post service
+   */
+  constructor(private thingThatPosts: PostService) {}
+
+  /**
+   * determins weither a user exists
+   */
   ngOnInit(): void {}
+
+  /**
+   * posts the post
+   */
+  submit(): void {
+    if (this.body) {
+      this.thingThatPosts.post(this.body).subscribe((p) => {
+        this.body = '';
+        this.postMade.emit();
+      });
+    }
+  }
 }

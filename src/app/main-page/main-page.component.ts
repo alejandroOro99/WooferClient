@@ -54,8 +54,16 @@ export class MainPageComponent implements OnInit {
     this.isLoggedUser =
       this.route.snapshot.paramMap.get('username') ===
       JSON.parse(localStorage.getItem('user')).username;
+    this.getPosts();
+  }
+
+  getPosts(): void {
     this.posts$ = this.postService.getByUsername(
       this.route.snapshot.paramMap.get('username')
     );
+  }
+
+  addPost(post: Post): void {
+    this.getPosts();
   }
 }

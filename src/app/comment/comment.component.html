@@ -1,7 +1,17 @@
-<div class="content" *ngFor="let comment of comments">
+<!-- <div class="content" *ngFor="let comment of comments">
   <h4>{{ comment["post"].name }}</h4>
   <span class="username"
     >{{ comment["post"]["user"]["username"] }}:
     <div>{{ comment.body }}</div></span
   >
+</div> -->
+<div class="container mx-auto">
+  <div class="d-flex justify-content-center w-100">
+    <div class="d-flex flex-column">
+      <app-post [post]="post$ | async"></app-post>
+      <div *ngFor="comment; in: comments$ | async">
+        {{ comment.id }}
+      </div>
+    </div>
+  </div>
 </div>

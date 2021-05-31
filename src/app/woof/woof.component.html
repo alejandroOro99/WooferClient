@@ -7,9 +7,10 @@
       type="text"
       maxlength="280"
       class="no-resize p-t-16 p-b-8 no-border w-100"
+      [(ngModel)]="body"
     ></textarea>
   </div>
   <div class="p-t-8 col-2">
-    <button class="btn btn-primary round">Woof</button>
+    <button (click)="submit()" class="btn btn-primary round">Woof</button>
   </div>
 </div>
