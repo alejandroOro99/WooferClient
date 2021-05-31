@@ -1,0 +1,12 @@
+<div class="container mx-auto">
+  <div class="d-flex justify-content-center w-100">
+    <div class="d-flex flex-column">
+      <app-post [post]="post$ | async" [isMainPage]="false"></app-post>
+      <app-comment
+        *ngFor="let comment of comments$ | async"
+        [comment]="comment"
+      >
+      </app-comment>
+    </div>
+  </div>
+</div>

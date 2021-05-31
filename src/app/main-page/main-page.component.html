@@ -6,11 +6,16 @@
       <app-post
         *ngFor="let post of posts$ | async"
         [post]="post"
-        [isLoggedUser]="isLoggedUser"
         [userId]="this.user.id"
+<<<<<<< HEAD
         (postDeleted)="getPosts()"
       ></app-post>
       <app-woof *ngIf="isLoggedUser" (postMade)="getPosts()"></app-woof>
+=======
+        [isMainPage]="true"
+      ></app-post>
+      <app-woof *ngIf="isLoggedUser" (postMade)="addPost()"></app-woof>
+>>>>>>> d49e39cf8b4e1430a113149b2bdcae397cc100f5
     </div>
   </div>
 </div>

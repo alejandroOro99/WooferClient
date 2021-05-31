@@ -37,6 +37,7 @@ export class PostComponent implements OnInit {
   isLiked: boolean = false;
   personalPost: boolean;
   public currentPostId: number;
+  @Input() isMainPage: boolean;
 
   public timestamp: Date;
   public months = [
