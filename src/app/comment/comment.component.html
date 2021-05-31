@@ -1,16 +1,27 @@
-<!-- <div class="content" *ngFor="let comment of comments">
-  <h4>{{ comment["post"].name }}</h4>
-  <span class="username"
-    >{{ comment["post"]["user"]["username"] }}:
-    <div>{{ comment.body }}</div></span
-  >
-</div> -->
-<div class="container mx-auto">
-  <div class="d-flex justify-content-center w-100">
-    <div class="d-flex flex-column">
-      <app-post [post]="post$ | async"></app-post>
-      <div *ngFor="comment; in: comments$ | async">
-        {{ comment.id }}
+<div class="d-flex flex-column w-580 p-t-12 p-x-16 border-grey m-l-48">
+  <div>
+    <span class="bold">{{ comment.user.name }} </span>
+    <span class="text-secondary">
+      <span> @{{ comment.user.username }} </span>
+      <span> · </span>
+      <span>May 25</span>
+    </span>
+  </div>
+  <div class="p-b-12">
+    <div class="font-size-15">
+      {{ comment.body }}
+    </div>
+    <div class="d-flex space-between m-t-12 text-secondary">
+      <div class="comment">
+        <i class="far fa-comment"></i>
+      </div>
+      <div class="retweet">
+        <i class="fas fa-retweet"></i>
+        <span class="p-x-12 f-13"> 2.9k</span>
+      </div>
+      <div class="like">
+        <i class="far fa-heart"></i>
+        <span class="p-x-12 f-13">{{ comment.post.likes }}</span>
       </div>
     </div>
   </div>

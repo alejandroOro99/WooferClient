@@ -35,6 +35,7 @@ export class PostComponent implements OnInit {
   commentBody: string;
   isLiked: boolean = false;
   public currentPostId: number;
+  @Input() isMainPage: boolean;
 
   /**
    * @param commentService injected comment service

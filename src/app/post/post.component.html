@@ -30,7 +30,7 @@
       </div>
     </div>
   </div>
-  <div class="p-y-12">
+  <div class="p-y-12" *ngIf="isMainPage">
     <a [routerLink]="[post.id]">Show this thread</a>
   </div>
 </div>
