@@ -29,7 +29,7 @@ export class PostComponent implements OnInit {
   /**
    * weither the user has elected to view this posts comments
    */
-  showComments: boolean;
+  showComment: boolean;
   /**
    * idk
    */
@@ -37,6 +37,7 @@ export class PostComponent implements OnInit {
   isLiked: boolean;
   personalPost: boolean;
   public currentPostId: number;
+  public totalComments: number;
   @Input() isMainPage: boolean;
 
   public timestamp: Date;
@@ -54,6 +55,7 @@ export class PostComponent implements OnInit {
     'November',
     'December',
   ];
+
 
   /**
    * @param commentService injected comment service
@@ -84,16 +86,25 @@ export class PostComponent implements OnInit {
 
   private amILiked(): void {
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
+    this.showComment = false;
+    this.getCommentsByPost();
+    
     if (likes) {
       this.isLiked = !(likes.indexOf(this.post.id) === -1);
     }
+
   }
 
   /**
    * runs upon a button press: creates a comment
    */
+  public showComments(): void {
+    this.showComment = !this.showComment;
+    console.log(this.showComment);
+  }
   public commentBtn(): void {
     this.addComment(this.commentBody, this.userId, this.post.id);
+    this.showComment = !this.showComment;
   }
   /**
    * adds a comment to the database
@@ -104,9 +115,16 @@ export class PostComponent implements OnInit {
   private addComment(body: string, userId: number, postId: number): void {
     const newComment = new Comment(body, postId, userId);
     console.log(newComment);
-    this.commentService.addComment(newComment).subscribe((res) => {});
+    this.commentService.addComment(newComment).subscribe((res) => {
+      this.getCommentsByPost();
+    });
   }
 
+  getCommentsByPost(): void {
+    this.commentService.getCommentsByPost(this.post.id).subscribe((res) => {
+      this.totalComments = res.length;
+    });
+  }
   /**
    * runs upon button press: likes a post
    */

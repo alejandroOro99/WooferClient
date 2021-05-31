@@ -15,9 +15,19 @@
     </div>
     <div class="d-flex space-between m-t-12 text-secondary">
       <div class="comment">
-        <i class="far fa-comment"></i>
-        <span class="p-x-12 f-13">
-          <input name="commentInput" type="text" [(ngModel)]="commentBody" />
+        <i class="far fa-comment" (click)="showComments()">
+          <span *ngIf="!showComment">
+            {{ this.totalComments }}
+          </span>
+        </i>
+        <span class="p-x-12 f-13" *ngIf="showComment">
+          <textarea
+            name="commentInput"
+            type="text"
+            maxlength="280"
+            class="no-resize p-t-16 p-b-8 borderComments 1px w-100"
+            [(ngModel)]="commentBody"
+          ></textarea>
           <button (click)="commentBtn()">Comment</button>
         </span>
       </div>
