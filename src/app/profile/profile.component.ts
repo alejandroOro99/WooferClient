@@ -73,13 +73,13 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  follow() {
+  follow(): void {
     const newFollower = new Follow(this.user.id, this.loggedUserId);
     this.followService.follow(newFollower).subscribe((res) => {
       this.getAllFollowers(true);
     });
   }
-  unfollow() {
+  unfollow(): void {
     this.followService.unfollow(this.followId).subscribe((res) => {
       this.getAllFollowers(true);
     });
@@ -90,17 +90,17 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  setAlreadyFollowed(isFollowed: boolean) {
+  setAlreadyFollowed(isFollowed: boolean): void {
     this.alreadyFollowed = isFollowed;
     console.log(this.alreadyFollowed);
   }
   getFollowersOfLoggedUser(userId: number): void {
     this.followService.getFollowersByFollowerId(userId).subscribe((res) => {
       let isFollowed = false;
-      for (let follower in res) {
-        if (res[follower]['user']['id'] === this.user.id) {
+      for (const follower in res) {
+        if (res[follower].user.id === this.user.id) {
           isFollowed = true;
-          this.followId = res[follower]['id'];
+          this.followId = res[follower].id;
           console.log(this.followId);
         }
       }

@@ -24,7 +24,7 @@ export class PostComponent implements OnInit {
   /**
    * id of the logged user
    */
-  //userId: number;
+  // userId: number;
   /**
    * weither the user has elected to view this posts comments
    */

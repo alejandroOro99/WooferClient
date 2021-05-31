@@ -26,7 +26,7 @@ export class FollowService {
   getFollowersByFollowerId(userId: number): Observable<Follow[]> {
     return this.http.get<Follow[]>(this.urlGetFollowersByFollowerId + userId);
   }
-  unfollow(followId: number) {
+  unfollow(followId: number): any {
     return this.http.delete(this.urlFollow + followId);
   }
   follow(follow: Follow): Observable<Follow> {
