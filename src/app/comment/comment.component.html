@@ -4,7 +4,7 @@
     <span class="text-secondary">
       <span> @{{ comment.user.username }} </span>
       <span> · </span>
-      <span>May 25</span>
+      <span>{{ months[timestamp.getMonth()] }} {{ timestamp.getDate() }} </span>
     </span>
   </div>
   <div class="p-b-12">

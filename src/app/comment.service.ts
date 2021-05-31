@@ -23,8 +23,10 @@ export class CommentService {
    * @param http injected http client
    */
   constructor(private http: HttpClient) {
-    this.urlAddComment = 'http://localhost:9000/comment';
-    this.urlGetCommentsByPost = 'http://localhost:9000/comment/post/';
+    this.urlAddComment =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/comment';
+    this.urlGetCommentsByPost =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/comment/post/';
   }
 
   /**

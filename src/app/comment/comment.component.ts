@@ -8,9 +8,25 @@ import { Comment } from '../comment';
 })
 export class CommentComponent implements OnInit {
   @Input() comment: Comment;
+  timestamp: Date;
+  public months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.comment);
+    this.timestamp = new Date(this.comment.timestamp);
   }
 }

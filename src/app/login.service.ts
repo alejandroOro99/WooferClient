@@ -20,7 +20,8 @@ export class LoginService {
    * instantiates the stored url
    */
   constructor(private http: HttpClient) {
-    this.urlLogin = 'http://localhost:9000/user/login';
+    this.urlLogin =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/user/login';
   }
 
   /**
@@ -34,6 +35,8 @@ export class LoginService {
   }
 
   public getLikes(userId: number): Observable<number[]> {
-    return this.http.get<number[]>('http://localhost:9000/like/' + userId);
+    return this.http.get<number[]>(
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/like/' + userId
+    );
   }
 }

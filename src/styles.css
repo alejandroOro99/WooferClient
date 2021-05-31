@@ -1,6 +1,7 @@
 :root {
   --main-color: hsl(45, 100%, 55%);
   --light-main-color: hsl(45, 100%, 95%);
+  --grey: hsl(204, 14%, 93%);
 }
 
 body {
@@ -82,6 +83,10 @@ a:hover {
   min-height: auto;
 }
 
+.h-40 {
+  height: 40px;
+}
+
 .max-width-400 {
   max-width: 400px;
 }
@@ -92,6 +97,10 @@ a:hover {
 
 .pointer {
   cursor: pointer;
+}
+
+.p-12 {
+  padding: 0.75rem;
 }
 
 .p-16 {
@@ -237,6 +246,10 @@ a:hover {
 
 .min-width {
   min-width: 56px;
+}
+
+.w-350 {
+  width: 350px;
 }
 
 .w-584 {
@@ -456,7 +469,7 @@ a:hover {
 }
 
 .border-grey {
-  border: 1px solid rgb(235, 238, 240);
+  border: 1px solid hsl(204, 14%, 93%);
 }
 
 .comment:hover {
@@ -477,4 +490,8 @@ a:hover {
 
 .borderComments {
   border: solid 1px;
+}
+
+.background-grey {
+  background-color: var(--grey);
 }
