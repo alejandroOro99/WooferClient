@@ -37,9 +37,7 @@ export class MainPageComponent implements OnInit {
     private postService: PostService,
     private route: ActivatedRoute,
     private locationStrategy: LocationStrategy
-  ) {
-    //this.user = JSON.parse(localStorage.getItem('user'));
-  }
+  ) {}
 
   preventBackButton(): void {
     history.pushState(null, null, location.href);
@@ -51,6 +49,8 @@ export class MainPageComponent implements OnInit {
    * fetches the logged users name than fetches all posts
    */
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log(this.user);
     this.isLoggedUser =
       this.route.snapshot.paramMap.get('username') ===
       JSON.parse(localStorage.getItem('user')).username;
