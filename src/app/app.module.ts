@@ -18,6 +18,7 @@ import { AppInterceptorService } from './app-interceptor.service';
 import { CommentComponent } from './comment/comment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WoofComponent } from './woof/woof.component';
+import { CommentPageComponent } from './comment-page/comment-page.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { WoofComponent } from './woof/woof.component';
     CommentComponent,
     ProfileComponent,
     WoofComponent,
+    CommentPageComponent,
   ],
   imports: [
     BrowserModule,

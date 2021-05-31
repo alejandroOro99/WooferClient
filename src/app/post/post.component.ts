@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommentService } from '../comment.service';
 import { Post } from '../post';
 
@@ -20,6 +20,7 @@ export class PostComponent implements OnInit {
    */
   @Input() post: Post;
   @Input() userId: number;
+  @Output() postDeleted = new EventEmitter<Post>();
   username: string;
   /**
    * id of the logged user
@@ -34,9 +35,27 @@ export class PostComponent implements OnInit {
    */
   commentBody: string;
   isLiked: boolean;
+  personalPost: boolean;
   public currentPostId: number;
-  public totalComments;
-  number;
+  public totalComments: number;
+  @Input() isMainPage: boolean;
+
+  public timestamp: Date;
+  public months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
 
   /**
    * @param commentService injected comment service
@@ -55,10 +74,25 @@ export class PostComponent implements OnInit {
    */
   ngOnInit(): void {
     // this.userId = Number(localStorage.getItem('id'));
+    this.timestamp = new Date(this.post.timestamp);
+    this.personalPost =
+      this.post.userId === JSON.parse(localStorage.getItem('user')).id;
+    this.amILiked();
+  }
+
+  remPost(): void {
+    this.service.remPost(this.post.id).subscribe(() => this.postDeleted.emit());
+  }
+
+  private amILiked(): void {
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
     this.showComment = false;
     this.getCommentsByPost();
-    // this.isLiked = !(likes.indexOf(this.post.id) === -1);
+    
+    if (likes) {
+      this.isLiked = !(likes.indexOf(this.post.id) === -1);
+    }
+
   }
 
   /**
@@ -97,12 +131,20 @@ export class PostComponent implements OnInit {
   like(): void {
     this.service.like(this.post.id).subscribe((num) => {
       if (num > 0) {
-        this.isLiked = true;
-        const likes: number[] = JSON.parse(localStorage.getItem('likes'));
-        likes.push(this.post.id);
-        localStorage.setItem('likes', JSON.stringify(likes));
-        this.post.likes = num;
+        this.service.refreshLikes().subscribe(() => {
+          this.post.likes = num;
+          this.amILiked();
+        });
       }
+    });
+  }
+
+  unLike(): void {
+    this.service.unLike(this.post.id).subscribe((num) => {
+      this.service.refreshLikes().subscribe(() => {
+        this.post.likes = num;
+        this.amILiked();
+      });
     });
   }
 }

@@ -183,8 +183,20 @@ a:hover {
   margin-top: 64px;
 }
 
+.m-l-16 {
+  margin-left: 1rem;
+}
+
+.m-l-48 {
+  margin-left: 3rem;
+}
+
 .nm-l-16 {
   margin-left: -1rem;
+}
+
+.nm-r-16 {
+  margin-right: -1rem;
 }
 
 .m-r-20 {
@@ -221,6 +233,10 @@ a:hover {
 
 .min-width {
   min-width: 56px;
+}
+
+.w-584 {
+  width: 584px;
 }
 
 .w-600 {

@@ -70,6 +70,10 @@ export class PostService {
     }
   }
 
+  remPost(id: number): Observable<void> {
+    return this.http.delete<void>(this.url + '/' + id);
+  }
+
   /**
    * likes a post
    * @param postId id of post to like
@@ -82,5 +86,32 @@ export class PostService {
       }/${postId}`,
       null
     );
+  }
+
+  /**
+   * unlikes a post
+   * @param postId id of post to unlike
+   * @returns observable that returns the number of total likes for relevent post upon completion
+   */
+  unLike(postId: number): Observable<number> {
+    return this.http.delete<number>(
+      `http://localhost:9000/like/${
+        JSON.parse(localStorage.getItem('user')).id
+      }/${postId}`
+    );
+  }
+
+  refreshLikes(): Observable<void> {
+    return new Observable<void>((o) => {
+      this.http
+        .get<number[]>(
+          'http://localhost:9000/like/' +
+            JSON.parse(localStorage.getItem('user')).id
+        )
+        .subscribe((likes) => {
+          localStorage.setItem('likes', JSON.stringify(likes));
+          o.next();
+        });
+    });
   }
 }
