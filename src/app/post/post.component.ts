@@ -5,6 +5,7 @@ import { Post } from '../post';
 import { Comment } from '../comment';
 import { PostService } from '../post.service';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 /**
  * displays a single post
@@ -56,7 +57,6 @@ export class PostComponent implements OnInit {
     'December',
   ];
 
-
   /**
    * @param commentService injected comment service
    * @param service injected post service
@@ -87,12 +87,9 @@ export class PostComponent implements OnInit {
   private amILiked(): void {
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
     this.showComment = false;
-    this.getCommentsByPost();
-    
     if (likes) {
       this.isLiked = !(likes.indexOf(this.post.id) === -1);
     }
-
   }
 
   /**
@@ -102,6 +99,7 @@ export class PostComponent implements OnInit {
     this.showComment = !this.showComment;
     console.log(this.showComment);
   }
+
   public commentBtn(): void {
     this.addComment(this.commentBody, this.userId, this.post.id);
     this.showComment = !this.showComment;
