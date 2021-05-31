@@ -56,7 +56,6 @@ export class PostComponent implements OnInit {
     'December',
   ];
 
-
   /**
    * @param commentService injected comment service
    * @param service injected post service
@@ -88,11 +87,9 @@ export class PostComponent implements OnInit {
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
     this.showComment = false;
     this.getCommentsByPost();
-    
     if (likes) {
       this.isLiked = !(likes.indexOf(this.post.id) === -1);
     }
-
   }
 
   /**

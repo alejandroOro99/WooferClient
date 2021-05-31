@@ -1,6 +1,6 @@
 import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Post } from '../post';
 import { PostService } from '../post.service';
@@ -35,7 +35,8 @@ export class MainPageComponent implements OnInit {
   constructor(
     private postService: PostService,
     private route: ActivatedRoute,
-    private locationStrategy: LocationStrategy
+    private locationStrategy: LocationStrategy,
+    private router: Router
   ) {}
 
   preventBackButton(): void {
@@ -49,7 +50,6 @@ export class MainPageComponent implements OnInit {
    */
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log(this.user);
     this.isLoggedUser =
       this.route.snapshot.paramMap.get('username') ===
       JSON.parse(localStorage.getItem('user')).username;
@@ -60,5 +60,10 @@ export class MainPageComponent implements OnInit {
     this.posts$ = this.postService.getByUsername(
       this.route.snapshot.paramMap.get('username')
     );
+  }
+
+  logout(): void {
+    localStorage.clear();
+    this.router.navigate([``]);
   }
 }
