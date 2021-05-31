@@ -14,9 +14,12 @@ export class FollowService {
   urlGetFollowers: string;
   urlGetFollowersByFollowerId: string;
   constructor(private http: HttpClient) {
-    this.urlFollow = 'http://localhost:9000/follow/';
-    this.urlGetFollowers = 'http://localhost:9000/follow/countbyuser/';
-    this.urlGetFollowersByFollowerId = 'http://localhost:9000/follow/follower/';
+    this.urlFollow =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/follow/';
+    this.urlGetFollowers =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/follow/countbyuser/';
+    this.urlGetFollowersByFollowerId =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/follow/follower/';
   }
 
   getAllFollowers(userId: number): Observable<number> {

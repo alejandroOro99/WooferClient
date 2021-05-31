@@ -28,9 +28,12 @@ export class SignupService {
    * @param http injected http client
    */
   constructor(private http: HttpClient) {
-    this.urlAddUser = 'http://localhost:9000/user/add';
-    this.urlGetUserByEmail = 'http://localhost:9000/user/email/';
-    this.urlGetUserByUsername = 'http://localhost:9000/user/username/';
+    this.urlAddUser =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/user/add';
+    this.urlGetUserByEmail =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/user/email/';
+    this.urlGetUserByUsername =
+      'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/user/username/';
   }
 
   /**
