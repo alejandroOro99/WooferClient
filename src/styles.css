@@ -90,6 +90,10 @@ a:hover {
   max-width: 760px;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .p-16 {
   padding: 16px;
 }
