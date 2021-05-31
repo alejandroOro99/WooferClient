@@ -8,6 +8,12 @@
         >{{ months[timestamp.getMonth()] }} {{ timestamp.getDate() }}</span
       >
     </span>
+    <span
+      *ngIf="personalPost"
+      (click)="remPost()"
+      class="m-l-48 text-danger pointer"
+      >X</span
+    >
   </div>
   <div class="p-b-12">
     <div class="font-size-15">
@@ -40,10 +46,6 @@
         <i *ngIf="!isLiked" class="far fa-heart" (click)="like()"></i>
         <span class="p-x-12 f-13">{{ post.likes }}</span>
       </div>
-    </div>
-    <br />
-    <div *ngIf="personalPost" (click)="remPost()">
-      click here to delete the post
     </div>
   </div>
   <div class="p-y-12" *ngIf="isMainPage">
