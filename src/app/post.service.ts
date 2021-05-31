@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, JsonpClientBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -82,5 +82,32 @@ export class PostService {
       }/${postId}`,
       null
     );
+  }
+
+  /**
+   * unlikes a post
+   * @param postId id of post to unlike
+   * @returns observable that returns the number of total likes for relevent post upon completion
+   */
+  unLike(postId: number): Observable<number> {
+    return this.http.delete<number>(
+      `http://localhost:9000/like/${
+        JSON.parse(localStorage.getItem('user')).id
+      }/${postId}`
+    );
+  }
+
+  refreshLikes(): Observable<void> {
+    return new Observable<void>((o) => {
+      this.http
+        .get<number[]>(
+          'http://localhost:9000/like/' +
+            JSON.parse(localStorage.getItem('user')).id
+        )
+        .subscribe((likes) => {
+          localStorage.setItem('likes', JSON.stringify(likes));
+          o.next();
+        });
+    });
   }
 }
