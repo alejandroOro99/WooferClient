@@ -19,6 +19,7 @@ export class PostComponent implements OnInit {
    * the post to display
    */
   @Input() post: Post;
+  @Input() userId: number;
   username: string;
   /**
    * id of the logged user
@@ -60,7 +61,7 @@ export class PostComponent implements OnInit {
    * runs upon a button press: creates a comment
    */
   public commentBtn(): void {
-    //this.addComment(this.commentBody, this.userId, this.post.id);
+    this.addComment(this.commentBody, this.userId, this.post.id);
   }
   /**
    * adds a comment to the database
@@ -70,6 +71,7 @@ export class PostComponent implements OnInit {
    */
   private addComment(body: string, userId: number, postId: number): void {
     const newComment = new Comment(body, postId, userId);
+    console.log(newComment);
     this.commentService.addComment(newComment).subscribe((res) => {});
   }
 

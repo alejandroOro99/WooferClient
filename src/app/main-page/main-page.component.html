@@ -1,12 +1,13 @@
 <div class="container mx-auto">
   <div class="d-flex justify-content-center w-100">
     <div class="d-flex flex-column">
-      <app-profile></app-profile>
+      <app-profile [loggedUserId]="this.user.id"></app-profile>
       <app-woof *ngIf="isLoggedUser" (postMade)="addPost($event)"></app-woof>
       <app-post
         *ngFor="let post of posts.slice().reverse()"
         [post]="post"
         [isLoggedUser]="isLoggedUser"
+        [userId]="this.user.id"
       ></app-post>
     </div>
   </div>

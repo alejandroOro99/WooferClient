@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Follow } from './follow';
@@ -26,8 +26,8 @@ export class FollowService {
   getFollowersByFollowerId(userId: number): Observable<Follow[]> {
     return this.http.get<Follow[]>(this.urlGetFollowersByFollowerId + userId);
   }
-  unfollow(follower: Follow): void {
-    this.http.delete(this.urlFollow + follower);
+  unfollow(followId: number) {
+    return this.http.delete(this.urlFollow + followId);
   }
   follow(follow: Follow): Observable<Follow> {
     return this.http.post<Follow>(this.urlFollow, follow);

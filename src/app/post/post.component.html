@@ -31,7 +31,10 @@
     <div class="d-flex space-between m-t-12 text-secondary">
       <div class="comment">
         <i class="far fa-comment"></i>
-        <span class="p-x-12 f-13"> {{ post.comments }}</span>
+        <span class="p-x-12 f-13">
+          <input name="commentInput" type="text" [(ngModel)]="commentBody" />
+          <button (click)="commentBtn()">Comment</button>
+        </span>
       </div>
       <div class="retweet">
         <i class="fas fa-retweet"></i>

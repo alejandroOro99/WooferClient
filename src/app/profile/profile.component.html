@@ -5,15 +5,23 @@
 <div class="d-flex flex-column w-600 p-t-12 p-x-16 border-grey">
   <div class="d-flex space-between m-t-4 m-b-12">
     <div>
-      <div class="f-20 bold">{{ user.name }}</div>
-      <div class="font-size-15 text-secondary">@{{ user.username }}</div>
+      <div class="f-20 bold">{{ this.user.name }}</div>
+      <div class="font-size-15 text-secondary">@{{ this.user.username }}</div>
     </div>
     <div>
       <button
-        *ngIf="!isLoggedUser"
+        *ngIf="!isLoggedUser && !alreadyFollowed"
         class="btn btn-primary-inverted round m-b-12"
+        (click)="follow()"
       >
         Follow
+      </button>
+      <button
+        *ngIf="!isLoggedUser && alreadyFollowed"
+        class="btn btn-primary-inverted round m-b-12"
+        (click)="unfollow()"
+      >
+        Unfollow
       </button>
     </div>
   </div>
