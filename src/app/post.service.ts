@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from './post';
+import { User } from './user';
 
 /**
  * makes all api calls for posts
@@ -42,15 +43,16 @@ export class PostService {
    * @param body body of the post
    * @returns observable that returns nothing upon completion
    */
-  post(body: string): Observable<void> {
-    if (localStorage.getItem('name')) {
-      return this.http.post<void>(this.url, {
+  post(body: string): Observable<Post> {
+    const user: User = JSON.parse(localStorage.getItem('user'));
+    if (user) {
+      return this.http.post<Post>(this.url, {
         body: `${body}`,
-        userId: Number(localStorage.getItem('id')),
+        userId: Number(user.id),
       });
     } else {
       alert('there is no logged user');
-      return new Observable<void>();
+      return new Observable<Post>((o) => o.next(null));
     }
   }
 
@@ -61,7 +63,9 @@ export class PostService {
    */
   like(postId: number): Observable<number> {
     return this.http.post<number>(
-      `http://localhost:9000/like/${localStorage.getItem('id')}/${postId}`,
+      `http://localhost:9000/like/${
+        JSON.parse(localStorage.getItem('user')).id
+      }/${postId}`,
       null
     );
   }

@@ -71,4 +71,8 @@ export class MainPageComponent implements OnInit {
         this.posts = res;
       });
   }
+
+  addPost(post: Post): void {
+    this.posts.push(post);
+  }
 }
