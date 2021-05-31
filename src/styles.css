@@ -454,3 +454,7 @@ a:hover {
 .no-resize {
   resize: none;
 }
+
+.borderComments {
+  border: solid 1px;
+}

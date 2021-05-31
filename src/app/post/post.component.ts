@@ -28,13 +28,15 @@ export class PostComponent implements OnInit {
   /**
    * weither the user has elected to view this posts comments
    */
-  showComments: boolean;
+  showComment: boolean;
   /**
    * idk
    */
   commentBody: string;
   isLiked: boolean;
   public currentPostId: number;
+  public totalComments;
+  number;
 
   /**
    * @param commentService injected comment service
@@ -54,14 +56,21 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     // this.userId = Number(localStorage.getItem('id'));
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
-    //this.isLiked = !(likes.indexOf(this.post.id) === -1);
+    this.showComment = false;
+    this.getCommentsByPost();
+    // this.isLiked = !(likes.indexOf(this.post.id) === -1);
   }
 
   /**
    * runs upon a button press: creates a comment
    */
+  public showComments(): void {
+    this.showComment = !this.showComment;
+    console.log(this.showComment);
+  }
   public commentBtn(): void {
     this.addComment(this.commentBody, this.userId, this.post.id);
+    this.showComment = !this.showComment;
   }
   /**
    * adds a comment to the database
@@ -72,9 +81,16 @@ export class PostComponent implements OnInit {
   private addComment(body: string, userId: number, postId: number): void {
     const newComment = new Comment(body, postId, userId);
     console.log(newComment);
-    this.commentService.addComment(newComment).subscribe((res) => {});
+    this.commentService.addComment(newComment).subscribe((res) => {
+      this.getCommentsByPost();
+    });
   }
 
+  getCommentsByPost(): void {
+    this.commentService.getCommentsByPost(this.post.id).subscribe((res) => {
+      this.totalComments = res.length;
+    });
+  }
   /**
    * runs upon button press: likes a post
    */
