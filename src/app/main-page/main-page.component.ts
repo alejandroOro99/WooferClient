@@ -35,7 +35,6 @@ export class MainPageComponent implements OnInit {
    */
   constructor(
     private postService: PostService,
-    private userService: SignupService,
     private route: ActivatedRoute,
     private locationStrategy: LocationStrategy,
     private router: Router

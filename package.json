@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json -w -s"
+    "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json -w -s",
+    "testcc": "ng test --source-map --code-coverage --no-watch",
+    "testccw": "ng test --source-map --code-coverage"
   },
   "private": true,
   "dependencies": {

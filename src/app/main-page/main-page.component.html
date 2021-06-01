@@ -17,6 +17,7 @@
         (postDeleted)="getPosts()"
         [isMainPage]="true"
       ></app-post>
+      <app-woof *ngIf="isLoggedUser" (postMade)="getPosts()"></app-woof>
     </div>
   </div>
   <div>

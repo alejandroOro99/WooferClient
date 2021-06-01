@@ -23,10 +23,11 @@ describe('LoginComponent', () => {
 
   class MockLoginService {
     login(): any {}
+    getLikes(): any {}
   }
 
   function pressTheButton(): void {
-    fixture.debugElement.query(By.css('button')).nativeElement.click();
+    fixture.debugElement.query(By.css('.dark-button')).nativeElement.click();
   }
 
   beforeEach(async () => {
@@ -64,8 +65,12 @@ describe('LoginComponent', () => {
             email: 'email',
             dob: 'dob',
             phone: 'phone',
+            timestamp: new Date(),
           });
         })
+      );
+      spyOn(loginService, 'getLikes').and.returnValue(
+        new Observable((o) => o.next(null))
       );
       spyOn(router, 'navigate');
       pressTheButton();
@@ -85,7 +90,7 @@ describe('LoginComponent', () => {
       spyOn(loginService, 'login').and.returnValue(
         new Observable<User>((o) => {
           throwError(new Error('test error'));
-          o.next(null);
+          o.error();
         })
       );
       spyOn(router, 'navigate');

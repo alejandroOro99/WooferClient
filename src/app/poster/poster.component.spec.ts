@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { Post } from '../post';
 import { PostService } from '../post.service';
 
 import { PosterComponent } from './poster.component';
@@ -62,7 +64,9 @@ describe('PosterComponent', () => {
     waitForAsync(() => {
       component.userExists = true;
       component.body = 'The Prince of Pounders';
-      spyOn(postService, 'post');
+      spyOn(postService, 'post').and.returnValue(
+        new Observable((o) => o.next(new Post()))
+      );
       fixture.detectChanges();
       fixture.debugElement.query(By.css('button')).nativeElement.click();
       fixture.whenStable().then(() => {
