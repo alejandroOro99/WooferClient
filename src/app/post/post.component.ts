@@ -75,6 +75,7 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     // this.userId = Number(localStorage.getItem('id'));
     this.timestamp = new Date(this.post.timestamp);
+    this.getCommentsByPost();
     this.personalPost =
       this.post.userId === JSON.parse(localStorage.getItem('user')).id;
     this.amILiked();
@@ -87,10 +88,6 @@ export class PostComponent implements OnInit {
   private amILiked(): void {
     const likes: number[] = JSON.parse(localStorage.getItem('likes'));
     this.showComment = false;
-<<<<<<< HEAD
-=======
-    this.getCommentsByPost();
->>>>>>> db83b1cc80d4c766b1503151fd4c76b27ca9645e
     if (likes) {
       this.isLiked = !(likes.indexOf(this.post.id) === -1);
     }

@@ -11,7 +11,7 @@ export class Comment {
   post: Post;
   user: User;
 
-  constructor(body: string, postId: number, userId: number) {
+  constructor(body?: string, postId?: number, userId?: number) {
     this.body = body;
     this.post = new Post(postId);
     this.user = new User(userId);

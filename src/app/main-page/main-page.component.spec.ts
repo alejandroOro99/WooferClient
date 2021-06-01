@@ -1,8 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, of } from 'rxjs';
 import { Post } from '../post';
 import { PostService } from '../post.service';
+import { SignupService } from '../signup.service';
 
 import { MainPageComponent } from './main-page.component';
 
@@ -17,10 +19,21 @@ describe('MainPageComponent', () => {
     post(): any {}
   }
 
+  class MockSignupService {}
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [FormsModule],
-      providers: [{ provide: PostService, useClass: MockPostService }],
+      providers: [
+        { provide: PostService, useClass: MockPostService },
+        { provide: SignupService, useClass: MockSignupService },
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({ id: 123 }),
+          },
+        },
+      ],
       declarations: [MainPageComponent],
     }).compileComponents();
 
