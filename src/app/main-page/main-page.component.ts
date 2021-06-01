@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Post } from '../post';
 import { PostService } from '../post.service';
+import { SignupService } from '../signup.service';
 import { User } from '../user';
 
 /**
@@ -26,7 +27,7 @@ export class MainPageComponent implements OnInit {
    */
   posts$: Observable<Post[]>;
   user: User;
-  searchUser: boolean;
+  searchUser: string;
   isLoggedUser: boolean;
   /**
    *
@@ -34,6 +35,7 @@ export class MainPageComponent implements OnInit {
    */
   constructor(
     private postService: PostService,
+    private userService: SignupService,
     private route: ActivatedRoute,
     private locationStrategy: LocationStrategy,
     private router: Router
@@ -65,5 +67,11 @@ export class MainPageComponent implements OnInit {
   logout(): void {
     localStorage.clear();
     this.router.navigate([``]);
+  }
+
+  search(): void {
+    this.router.navigate([`${this.searchUser}`]).then(() => {
+      window.location.reload();
+    });
   }
 }

@@ -20,7 +20,7 @@ export class PostService {
    * @param http injected http client
    */
   constructor(private http: HttpClient) {
-    this.url = 'http://localhost:9000/post';
+    this.url = 'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/post';
   }
 
   /**
@@ -81,7 +81,7 @@ export class PostService {
    */
   like(postId: number): Observable<number> {
     return this.http.post<number>(
-      `http://localhost:9000/like/${
+      `http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/like/${
         JSON.parse(localStorage.getItem('user')).id
       }/${postId}`,
       null
@@ -95,7 +95,7 @@ export class PostService {
    */
   unLike(postId: number): Observable<number> {
     return this.http.delete<number>(
-      `http://localhost:9000/like/${
+      `http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/like/${
         JSON.parse(localStorage.getItem('user')).id
       }/${postId}`
     );
@@ -105,7 +105,7 @@ export class PostService {
     return new Observable<void>((o) => {
       this.http
         .get<number[]>(
-          'http://localhost:9000/like/' +
+          'http://ec2-3-141-152-217.us-east-2.compute.amazonaws.com/like/' +
             JSON.parse(localStorage.getItem('user')).id
         )
         .subscribe((likes) => {
